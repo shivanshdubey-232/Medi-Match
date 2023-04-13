@@ -54,7 +54,7 @@ app.use((req, res, next) =>{
 })
 
 app.get("/", (req, res) =>{
-  res.send("Hello ");
+  res.render("hello");
 });
 
 //----------------importing routes------------------ 

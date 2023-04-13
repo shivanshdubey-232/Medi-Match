@@ -17,7 +17,7 @@ const validatedoctor = (req, res, next) => {
 
 router.get('/', catchAsync(async (req, res) => {
   const doctors = await Doctor.find({});
-  res.render('doctors/index', { doctors })
+  res.render('doctors/index', { doctors })  
 }));
 //--------------------new -------------------
 router.get('/new', (req, res) => {

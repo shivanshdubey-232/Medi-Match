@@ -1,9 +1,8 @@
-<%- include('partials/head')%>
-
-<%- include('partials/navbar')%>
+<%- include('../partials/head')%>
+<%- include('../partials/navbar')%>
 
 <h1>Make a new doctor</h1>
-    <form action="/" method="post">
+    <form action="/doctors" method="post">
         <section>
             <label for="username">Enter Username:</label>
             <input type="text" id="username" placeholder="username" name="name">
@@ -21,7 +20,7 @@
             <input type="text" id="img" placeholder="IMG-url" name="image">
         </section>
         <button>Submit</button>
-    </form>
-    
+    </form>   
     <a href="/">Back to Index</a>
-<%- include('partials/footer')%>
+
+<%- include('../partials/footer')%>
