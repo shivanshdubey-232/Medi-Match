@@ -24,7 +24,7 @@ router.get('/', catchAsync(async (req, res) => {
 router.get('/new', (req, res) => {
   res.render('doctors/new');
 });
-router.post('/', catchAsync(async (req, res, next) => {
+router.post('/', validatedoctor, catchAsync(async (req, res, next) => {
   const doctor = new Doctor(req.body.doctor);
   console.log(req.body);
   await doctor.save();

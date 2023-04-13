@@ -59,7 +59,7 @@ app.get("/", (req, res) =>{
 
 //----------------importing routes------------------ 
 app.use('/doctors', doctors);
-app.use('/spots/:id/appointments', require('./routes/appointments'));
+app.use('/doctors/:id/appointments', require('./routes/appointments'));
 
 //------------------error handling------------------
 app.all('*', (req, res, next) => {
