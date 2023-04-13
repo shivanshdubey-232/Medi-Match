@@ -60,7 +60,16 @@ app.get("/", (req, res) =>{
 //----------------importing routes------------------ 
 app.use('/doctors', doctors);
 app.use('/doctors/:id/appointments', require('./routes/appointments'));
-
+//------------------Simple Routes------------------
+app.get("/index", (req, res) => {
+  res.render("index");
+});
+app.get("/about", (req, res) => {
+  res.render("about");
+});
+app.get("/gallery", (req, res) => {
+  res.render("gallery");
+});
 //------------------error handling------------------
 app.all('*', (req, res, next) => {
   next(new ExpressError('Page not found !', 404));

@@ -11,7 +11,7 @@
       <div class="card my-3">
         <div class="card-body">
           <h5 class="card-title">Appointment with <%= appointment.name %></h5>
-          <p class="card-text">Date: <%= appointment.date %></p>
+          <p class="card-text">Date: <%= appointment.date %> </p>
           <p class="card-text">Time: <%= appointment.time %></p>
           <p class="card-text">Phone: <%= appointment.phone %></p>
           <p class="card-text">Email: <%= appointment.email %></p>
@@ -22,27 +22,41 @@
       </div>
     <% } %>
     <h2>Make an appointment </h2>
-      <form action="/doctors/<%= doctor._id %>/appointments" method="POST" style="max-width : 600px" class="mb-3  validated-form" novalidate>
-          <div class="mb-3">
+      <form action="/doctors/<%= doctor._id %>/appointments" method="POST" style="max-width : 600px" class="mb-3 validated-form" novalidate>
               <label for="name">Patient's Name</label>
-              <input class="form-control mb-3" type="text" name="appointment[name]" id="name">
+              <input class="form-control mb-3" type="text" name="appointment[name]" id="name" required>
+              <div class="valid-feedback">
+                    Looks Good
+              </div>
               <label for="phone">Patient's Phone</label>
-              <input class="form-control mb-3" type="text" name="appointment[phone]" id="phone">
+              <input class="form-control mb-3" type="text" name="appointment[phone]" id="phone" required>
+              <div class="valid-feedback">
+                    Looks Good
+              </div>
               <label for="email">Patient's Email</label>
-              <input class="form-control mb-3" type="email" name="appointment[email]" id="email">
+              <input class="form-control mb-3" type="email" name="appointment[email]" id="email" required>
+              <div class="valid-feedback">
+                    Looks Good          
+              </div>
               <label for="date">Appointment Date</label>
-              <input class="form-control mb-3" type="text" name="appointment[date]" id="date">
+              <input class="form-control mb-3" type="text" name="appointment[date]" id="date" required>
+              <div class="valid-feedback">
+                    Looks Good      
+              </div>
               <label for="date">Appointment Time</label>
-              <input class="form-control mb-3" type="text" name="appointment[time]" id="time">
+              <input class="form-control mb-3" type="text" name="appointment[time]" id="time" required>
+              <div class="valid-feedback">
+                    Looks Good  
+              </div>
           <button class="btn btn-success mb-3">Submit</button>
+      </form>
+    </div>
+    <div>
+      <form class="d-inline" action="/doctors/<%= doctor._id %>?_method=DELETE" method="POST">
+        <button class="btn btn-danger">Delete </button>
       </form>
     </div>
   </div>
 
 
-  <div>
-    <form class="d-inline" action="/doctors/<%=doctor._id%>?_method=DELETE" method="POST">
-      <button class="btn btn-danger">Delete </button>
-    </form>
-  </div>
 </div>
