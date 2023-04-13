@@ -12,7 +12,7 @@
         <div class="card-body">
           <h5 class="card-title">Appointment with <%= appointment.name %></h5>
           <p class="card-text">Date: <%= appointment.date %> </p>
-          <p class="card-text">Time: <%= appointment.time %></p>
+          <p class="card-text">Time-Slot: <%= appointment.time %></p>
           <p class="card-text">Phone: <%= appointment.phone %></p>
           <p class="card-text">Email: <%= appointment.email %></p>
           <form action="/doctors/<%= doctor._id%>/appointments/<%= appointment._id %>?_method=DELETE" method="POST">
@@ -53,17 +53,24 @@
           </div>
         </div>
         <div>
-          <label class="form-label" for="date">Appointment Time</label>
-          <input class="form-control mb-3" type="text" name="appointment[time]" id="time" required>
+          <label class="form-label" for="time">Appointment Time Slot</label>
+          <select class="form-control mb-3" name="appointment[time]" id="time" required>
+            <% for(let slot of allSlots){ %>
+              <% if (!appointmentSlots.includes(slot)){%>
+              <option value="<%= slot %>"><%= slot %></option>
+              <% } %>
+            <% } %>
+          </select>
           <div class="valid-feedback">
                 Looks Good  
           </div>
         </div>
-          <button class="btn btn-success mb-3">Submit</button>
+          <button type="submit" class="btn btn-success mb-3">Make an appointment</button>
       </form>
     </div>
   </div>
 
+  
 
 </div>
 <%- include('../partials/footer')%>

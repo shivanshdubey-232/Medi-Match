@@ -7,6 +7,7 @@ const {appointmentSchema} = require('../schemas.js');
 
 
 const validateappointment = (req, res, next) => {
+  console.log(req.body);
   const {error} = appointmentSchema.validate(req.body);
   if(error){
     const msg = error.details.map(el => el.message);
@@ -18,7 +19,7 @@ const validateappointment = (req, res, next) => {
 }
 
 // ----------------------appointment route-----------------
-router.post('/', validateappointment, catchAsync(async(req, res) => {
+router.post('/', catchAsync(async(req, res) => {
   const doctor = await Doctor.findById(req.params.id);
   const appointment = new Appointment(req.body.appointment);
   console.log(appointment);
