@@ -1,0 +1,15 @@
+<%- include('partials/head')%>
+
+<%- include('partials/navbar')%>
+
+<% for( let doctor of doctors){%>
+    <ul>
+        <li>
+        <h1>doctor.name</h1>
+        <h2>department <b>degree</b></h2>
+        <img src=`${doctor.img}` alt="">
+        </li>
+        <hr>
+    </ul>
+<%}%>
+<%- include('partials/footer')%>
