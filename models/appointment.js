@@ -6,7 +6,6 @@ const appointmentSchema = new Schema({
   name: String,
   email: String,
   phone: String,
-  doctor_name: String,
   date: String,
   time: String,
   doctor: {
