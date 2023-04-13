@@ -26,8 +26,8 @@ app.engine('ejs', ejsMate);
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
-const spots = require('./routes/spot');
-const reviews = require('./routes/reviews');
+const doctors = require('./routes/doctor');
+const appointments = require('./routes/appointments');
 
 
 app.use(express.urlencoded({extended : true}));
