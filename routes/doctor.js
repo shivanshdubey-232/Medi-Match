@@ -1,17 +1,18 @@
 const express = require('express');
 const router = express.Router();
 const catchAsync = require('../utils/catchAsync');
+const ExpressError = require('../utils/ExpressError');
 const Doctor = require('../models/doctor');
 const {doctorSchema} = require('../schemas.js');
 
 const validatedoctor = (req, res, next) => {
-  // const {error} = doctorSchema.validate(req.body);
-  // if(error){
-  //   const msg = error.details.map(el => el.message);
-  //   throw new ExpressError(msg, 400);
-  // } else{
+  const {error} = doctorSchema.validate(req.body);
+  if(error){
+    const msg = error.details.map(el => el.message);
+    throw new ExpressError(msg, 400);
+  } else{
     next();
-  // }
+  }
 } 
 
 
@@ -23,16 +24,17 @@ router.get('/', catchAsync(async (req, res) => {
 router.get('/new', (req, res) => {
   res.render('doctors/new');
 });
-router.post('/', validatedoctor, catchAsync(async (req, res, next) => {
+router.post('/', catchAsync(async (req, res, next) => {
   const doctor = new Doctor(req.body.doctor);
+  console.log(req.body);
   await doctor.save();
   req.flash('success', 'Successfully created a new doctor !'); 
-  res.redirect(`/doctors/${doctor._id}`)
+  res.redirect(`/doctors`)
   
 }));
 // -------------show----------------------------
 router.get('/:id', catchAsync(async (req, res,) => {
-  const doctor = await Doctor.findById(req.params.id).populate('appointnments');
+  const doctor = await Doctor.findById(req.params.id).populate('appointments');
   if(!doctor){
     req.flash('error', 'Cannot find any doctor !');
     return res.redirect('/doctors');

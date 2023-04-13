@@ -7,13 +7,13 @@ const {appointmentSchema} = require('../schemas.js');
 
 
 const validateappointment = (req, res, next) => {
-  // const {error} = appointmentSchema.validate(req.body);
-  // if(error){
-  //   const msg = error.details.map(el => el.message);
-  //   throw new ExpressError(msg, 400);
-  // }else{
+  const {error} = appointmentSchema.validate(req.body);
+  if(error){
+    const msg = error.details.map(el => el.message);
+    throw new ExpressError(msg, 400);
+  }else{
     next();
-//   }
+  }
 }
 
 // ----------------------appointment route-----------------

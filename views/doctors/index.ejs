@@ -5,9 +5,9 @@
 <% for( let doctor of doctors){%>
     <ul>
         <li>
-        <h1>doctor.name</h1>
-        <h2>department <b>degree</b></h2>
-        <img src=`${doctor.img}` alt="">
+        <h1><%= doctor.name %></h1>
+        <h2><%= doctor.department %> <b> <%= doctor.degree %></b></h2>
+        <img src=<%= doctor.image %> alt="">
         </li>
         <hr>
     </ul>

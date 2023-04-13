@@ -2,22 +2,22 @@
 <%- include('../partials/navbar')%>
 
 <h1>Make a new doctor</h1>
-    <form action="/doctors" method="post">
+    <form action="/doctors" method="POST">
         <section>
-            <label for="username">Enter Username:</label>
-            <input type="text" id="username" placeholder="username" name="name">
+            <label for="name">Enter name:</label>
+            <input type="text" id="name" placeholder="name" name="doctor[name]">
         </section>
         <section>
         <label for="degree">Enter Degree:</label>
-            <input type="text" id="degree" placeholder="Degree" name="degree">
+            <input type="text" id="degree" placeholder="Degree" name="doctor[degree]">
         </section>
         <section>
             <label for="department">Enter Department : </label>
-            <input type="text" id="department" placeholder="Department" name="department">
+            <input type="text" id="department" placeholder="Department" name="doctor[department]">
         </section>
         <section>
             <label for="img">Enter img url:</label>
-            <input type="text" id="img" placeholder="IMG-url" name="image">
+            <input type="text" id="img" placeholder="IMG-url" name="doctor[image]">
         </section>
         <button>Submit</button>
     </form>   
