@@ -59,7 +59,7 @@ app.get("/", (req, res) =>{
 
 //----------------importing routes------------------ 
 app.use('/doctors', doctors);
-app.use('/spots/:id/reviews', require('./routes/reviews'));
+app.use('/spots/:id/appointments', require('./routes/appointments'));
 
 //------------------error handling------------------
 app.all('*', (req, res, next) => {
@@ -72,6 +72,6 @@ app.use((err, req, res, next) => {
 });
 
 // -------------listening--------------------------
-app.listen("8080", (req, res) =>{
-    console.log("Listening in port 8080...");
+app.listen("3000", (req, res) =>{
+    console.log("Listening in port 3000...");
 });
