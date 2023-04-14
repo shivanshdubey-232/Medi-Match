@@ -24,7 +24,7 @@ router.get('/', catchAsync(async (req, res) => {
 router.get('/new', (req, res) => {
   res.render('doctors/new');
 });
-router.post('/', validatedoctor, catchAsync(async (req, res, next) => {
+router.post('/', catchAsync(async (req, res, next) => {
   const doctor = new Doctor(req.body.doctor);
   console.log(req.body);
   await doctor.save();
@@ -42,29 +42,6 @@ router.get('/:id', catchAsync(async (req, res,) => {
   const appointmentSlots = doctor.appointments.map(appointment => appointment.time);
   const allSlots=["8:00 AM - 9:00 AM", "9:00 AM - 10:00 AM", "10:00 AM - 11:00 AM", "11:00 AM - 12:00 PM", "2:00 PM - 3:00 PM", "3:00 PM - 4:00 PM", "4:00 PM - 5:00 PM", "5:00 PM - 6:00 PM"];
   res.render('doctors/show', { doctor, appointmentSlots, allSlots, msg: req.flash("success")  });
-}));
-
-// -------------------------edit ------------------
-router.get('/:id/edit', catchAsync(async (req, res) => {
-  const doctor = await Doctor.findById(req.params.id)
-  if(!doctor){
-    req.flash('error', 'Cannot find any doctor !');
-    return res.redirect('/doctors');
-  }
-  res.render('doctors/edit', { doctor });
-}));
-router.put('/:id', validatedoctor, catchAsync(async (req, res) => {
-  const { id } = req.params; 
-  const doctor = await Doctor.findByIdAndUpdate(id, { ...req.body.doctor });
-  req.flash('success', 'Successfully updated doctor !');
-  res.redirect(`/doctors/${doctor._id}`)
-}));
-//----------------------delete-----------------------
-router.delete('/:id', catchAsync(async (req, res) => {
-  const { id } = req.params;
-  await Doctor.findByIdAndDelete(id);
-  req.flash('success', 'Successfully deleted the doctor !');
-  res.redirect('/doctors');
 }));
 
 

@@ -1,21 +1,30 @@
-<body>
-    <nav class="navbarShivam">
-        <div class="navbarShivam-container container">
-            <input type="checkbox" name="" id="">
-            <div class="hamburger-lines">
-                <span class="line line1"></span>
-                <span class="line line2"></span>
-                <span class="line line3"></span>
-            </div>
-            <ul class="menu-items">
-                <li><a href="/index">Home</a></li>
-                <li><a href="/about">About Us</a></li>
-                <li><a href="/doctors/">Doctors</a></li>
-                <li><a href="/gallery">Gallery</a></li>
-            </ul>
-            <h1 class="logo">Medi-match</h1>
-        </div>
-    </nav>
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="box-shadow: #74c52b 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;">
+    <a class="navbar-brand" href="/index" style="color: #74c52b; letter-spacing:0.3em;">
+        <img src="https://th.bing.com/th/id/OIG.ILLQySJElbHRXtne5QvG?pid=ImgGn" width="60" height="60" class="d-inline-block align-top img-fluid" style="position:fixed; top:0"alt="">
+        <span style="position:relative; left:4em">
+            MEDI-MATCH 
+        </span>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav" style="position:relative; left:4em">
+        <li class="nav-item">
+          <a class="nav-link" href="/index">HOME <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/doctors">DOCTORS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/gallery">GALLERY</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about">ABOUT US</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
     <div class="container my-3">
         <%- include('../partials/flash') %> 
     </div>

@@ -2,18 +2,19 @@
 <%- include('../partials/navbar')%>
 
 
-<div class="container">
+<div class="container text-center">
     <h1>Our Doctors</h1>
     <hr>
+
     <% for( let doctor of doctors){%>
-        <ul>
-            <li>
-            <h1><%= doctor.name %></h1>
-            <h2><%= doctor.department %> <b> <%= doctor.degree %></b></h2>
-            <img src=<%= doctor.image %> alt="">
-            </li>
-            <hr>
-        </ul>
+    <div class="card text-center mb-3" style="max-width:400px; margin:auto;box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;" data-aos="zoom-in">
+        <img src="<%= doctor.image %>" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title font-weight-bold "><%= doctor.name %></h5>
+            <p class="card-text text-muted"><%= doctor.degree %>, <%= doctor.department %></p>
+            <a href="/doctors/<%= doctor._id %>" class="btn btn-success">Get Appointment</a>
+        </div>
+    </div>
     <%}%>
 
 </div>
