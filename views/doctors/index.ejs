@@ -5,7 +5,8 @@
 <div class="container text-center">
     <h1>Our Doctors</h1>
     <hr>
-
+    <!-- Add a new doctor link -->
+    <a href="/doctors/new" class="btn btn-success my-3">+ Add a new doctor</a>
     <% for( let doctor of doctors){%>
     <div class="card text-center mb-3" style="max-width:400px; margin:auto;box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;" data-aos="zoom-in">
         <img src="<%= doctor.image %>" class="card-img-top" alt="...">

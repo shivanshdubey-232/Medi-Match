@@ -1,49 +1,51 @@
 <%- include('../partials/head') %>
 <%- include('../partials/navbar') %>
+    <div class="container" style="max-width: 600px">
+        <h1>Add Doctor</h1>
+      
+        <form action='/doctors' method="POST" novalidate class="validated-form">
+          <div>
+              <label for="name">Doctor Name:</label>
+              <input class="form-control" type="text" id="name" name="doctor[name]" required>
+              <div class="valid-feedback">
+                  Looks Good  
+              </div>
+          </div>
+          <div>
+              <label for="degree">Degree:</label>
+              <input class="form-control" type="text" id="degree" name="doctor[degree]" required>
+              <div class="valid-feedback">
+                  Looks Good  
+              </div>
+          </div>
+          <div>
+              <label for="department">Department:</label>
+              <select class="form-control" id="department" name="doctor[department]" required>
+                <option value="">Select Department</option>
+                <option value="Cardiology">Cardiology</option>
+                <option value="Dermatology">Dermatology</option>
+                <option value="Gastroenterology">Gastroenterology</option>
+                <option value="Neurology">Neurology</option>
+                <option value="Oncology">Oncology</option>
+                <option value="Orthopedics">Orthopedics</option>
+                <option value="Pediatrics">Pediatrics</option>
+                <option value="Psychiatry">Psychiatry</option>
+                <option value="Urology">Urology</option>
+              </select>
+              <div class="valid-feedback">
+                  Looks Good  
+              </div>
+          </div>
+          <div class="mb-3">
+              <label for="image">Doctor Image URL:</label>
+              <input  class="form-control" type="url" id="image" name="doctor[image]" required>
+              <div class="valid-feedback">
+                  Looks Good  
+              </div>
+          </div>
+      
+          <button class="btn btn-success" type="submit">+ Add Doctor</button>
+        </form>
+        
+    </div>
 
-      <h1>Add Doctor</h1>
-    
-      <form action='/doctors' method="POST" novalidate class="validated-form">
-        <div>
-            <label for="name">Doctor Name:</label>
-            <input class="form-control" type="text" id="name" name="doctor[name]" required>
-            <div class="valid-feedback">
-                Looks Good  
-            </div>
-        </div>
-        <div>
-            <label for="degree">Degree:</label>
-            <input class="form-control" type="text" id="degree" name="doctor[degree]" required>
-            <div class="valid-feedback">
-                Looks Good  
-            </div>
-        </div>
-        <div>
-            <label for="department">Department:</label>
-            <select class="form-control" id="department" name="doctor[department]" required>
-              <option value="">Select Department</option>
-              <option value="Cardiology">Cardiology</option>
-              <option value="Dermatology">Dermatology</option>
-              <option value="Gastroenterology">Gastroenterology</option>
-              <option value="Neurology">Neurology</option>
-              <option value="Oncology">Oncology</option>
-              <option value="Orthopedics">Orthopedics</option>
-              <option value="Pediatrics">Pediatrics</option>
-              <option value="Psychiatry">Psychiatry</option>
-              <option value="Urology">Urology</option>
-            </select>
-            <div class="valid-feedback">
-                Looks Good  
-            </div>
-        </div>
-        <div>
-            <label for="image">Doctor Image URL:</label>
-            <input  class="form-control" type="url" id="image" name="doctor[image]" required>
-            <div class="valid-feedback">
-                Looks Good  
-            </div>
-        </div>
-    
-        <button type="submit">Add Doctor</button>
-      </form>
-<%- include('../partials/footer')%>
