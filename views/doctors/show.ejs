@@ -1,14 +1,14 @@
 <%- include('../partials/head')%>
 <%- include('../partials/navbar')%>
 
-<div class="container my-5" >
-  <h3>Showing appointments for <%= doctor.name %></h3>
+<div class="container my-5 text-center" >
+  <h3 class="text-center">Showing appointments for <%= doctor.name %></h3>
   <div class="container">
     <% if(doctor.appointments.length === 0){ %>
       <h5 class="muted text-center p-5">No appointments yet</h5>
     <% } %>
     <% for(let appointment of doctor.appointments ){ %>
-      <div class="card my-3">
+      <div class="card my-3" style="max-width:600px; margin:auto;" data-aos="fade-right">
         <div class="card-body">
           <h5 class="card-title">Appointment with <%= appointment.name %></h5>
           <p class="card-text">Date: <%= appointment.date %> </p>
@@ -21,52 +21,55 @@
         </div>
       </div>
     <% } %>
-    <h2>Make an appointment </h2>
-      <form action="/doctors/<%= doctor._id %>/appointments" method="POST" style="max-width : 600px" class="mb-3 validated-form" novalidate>
-        <div>
-          <label class="form-label" for="name">Patient's Name</label>
-          <input class="form-control mb-3" type="text" name="appointment[name]" id="name" required>
-          <div class="valid-feedback">
-                Looks Good
+    <div class="container" data-aos="zoom-in">
+      <h2 class="text-center">Make an appointment </h2>
+        <form action="/doctors/<%= doctor._id %>/appointments" method="POST" style="max-width : 600px; margin:auto;" class="mb-3 validated-form" data-aos="zoom-in" novalidate>
+          <div>
+            <label class="form-label" for="name">Patient's Name</label>
+            <input class="form-control mb-3" type="text" name="appointment[name]" id="name" required>
+            <div class="valid-feedback">
+                  Looks Good
+            </div>
           </div>
-        </div>
-        <div>
-          <label class="form-label" for="phone">Patient's Phone</label>
-          <input class="form-control mb-3" type="text" name="appointment[phone]" id="phone" required>
-          <div class="valid-feedback">
-                Looks Good
+          <div>
+            <label class="form-label" for="phone">Patient's Phone</label>
+            <input class="form-control mb-3" type="text" name="appointment[phone]" id="phone" required>
+            <div class="valid-feedback">
+                  Looks Good
+            </div>
           </div>
-        </div>
-        <div>
-          <label class="form-label" for="email">Patient's Email</label>
-          <input class="form-control mb-3" type="email" name="appointment[email]" id="email" required>
-          <div class="valid-feedback">
-                Looks Good          
+          <div>
+            <label class="form-label" for="email">Patient's Email</label>
+            <input class="form-control mb-3" type="email" name="appointment[email]" id="email" required>
+            <div class="valid-feedback">
+                  Looks Good          
+            </div>
           </div>
-        </div>
-        <div>
-
-          <label class="form-label" for="date">Appointment Date</label>
-          <input class="form-control mb-3" type="text" name="appointment[date]" id="date" required>
-          <div class="valid-feedback">
-                Looks Good      
+          <div>
+  
+            <label class="form-label" for="date">Appointment Date</label>
+            <input class="form-control mb-3" type="text" name="appointment[date]" id="date" required>
+            <div class="valid-feedback">
+                  Looks Good      
+            </div>
           </div>
-        </div>
-        <div>
-          <label class="form-label" for="time">Appointment Time Slot</label>
-          <select class="form-control mb-3" name="appointment[time]" id="time" required>
-            <% for(let slot of allSlots){ %>
-              <% if (!appointmentSlots.includes(slot)){%>
-              <option value="<%= slot %>"><%= slot %></option>
+          <div>
+            <label class="form-label" for="time">Appointment Time Slot</label>
+            <select class="form-control mb-3" name="appointment[time]" id="time" required>
+              <% for(let slot of allSlots){ %>
+                <% if (!appointmentSlots.includes(slot)){%>
+                <option value="<%= slot %>"><%= slot %></option>
+                <% } %>
               <% } %>
-            <% } %>
-          </select>
-          <div class="valid-feedback">
-                Looks Good  
+            </select>
+            <div class="valid-feedback">
+                  Looks Good  
+            </div>
           </div>
-        </div>
-          <button type="submit" class="btn btn-success mb-3">Make an appointment</button>
-      </form>
+            <button type="submit" class="btn btn-success mb-3">Make an appointment</button>
+        </form>
+
+    </div>
     </div>
   </div>
 
