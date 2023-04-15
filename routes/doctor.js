@@ -44,5 +44,12 @@ router.get('/:id', catchAsync(async (req, res,) => {
   res.render('doctors/show', { doctor, appointmentSlots, allSlots, msg: req.flash("success")  });
 }));
 
+// ---------------delete doctor --------------------
+router.delete('/:id', catchAsync(async (req, res) => {
+  const { id } = req.params;  
+  const doctor = await Doctor.findByIdAndDelete(id);
+  req.flash('success', `Successfully deleted the doctor named ${doctor.name}!`);
+  res.redirect('/doctors');
+}));
 
 module.exports = router;

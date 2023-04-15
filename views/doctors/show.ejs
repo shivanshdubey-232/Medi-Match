@@ -68,6 +68,10 @@
           </div>
             <button type="submit" class="btn btn-success mb-3">Make an appointment</button>
         </form>
+        <!-- delete doctor button -->
+        <form action="/doctors/<%= doctor._id %>?_method=DELETE" method="POST">
+          <button class="btn btn-sm btn-danger">Delete Doctor !</button>
+        </form>
 
     </div>
     </div>
