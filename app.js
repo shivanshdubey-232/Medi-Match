@@ -6,8 +6,11 @@ const Joi = require("joi");
 const methodOverride = require("method-override");
 const session = require("express-session");
 const flash = require("connect-flash");
-
 const mongoose = require("mongoose");
+const passport = require("passport");
+const LocalStrategy = require("passport-local");
+const User = require("./models/user");
+
 mongoose.set("strictQuery", true);
 mongoose
   .connect("mongodb://127.0.0.1:27017/medimatch", {
@@ -28,6 +31,7 @@ app.engine("ejs", ejsMate);
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
+const userRoutes = require("./routes/users");
 const doctors = require("./routes/doctor");
 const appointments = require("./routes/appointments");
 
@@ -48,7 +52,14 @@ const sessionConfig = {
 app.use(session(sessionConfig));
 app.use(flash());
 
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
 app.use((req, res, next) => {
+  res.locals.currentUser = req.user;
   res.locals.success = req.flash("success");
   res.locals.error = req.flash("error");
   next();
@@ -59,6 +70,7 @@ app.get("/", (req, res) => {
 });
 
 //----------------importing routes------------------
+app.use("/", userRoutes);
 app.use("/doctors", doctors);
 app.use("/doctors/:id/appointments", require("./routes/appointments"));
 //------------------Simple Routes------------------

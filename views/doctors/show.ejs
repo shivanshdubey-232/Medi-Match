@@ -8,18 +8,20 @@
       <h5 class="muted text-center p-5">No appointments yet</h5>
     <% } %>
     <% for(let appointment of doctor.appointments ){ %>
-      <div class="card my-3" style="max-width:600px; margin:auto;" data-aos="fade-right">
-        <div class="card-body">
-          <h5 class="card-title">Appointment with <%= appointment.name %></h5>
-          <p class="card-text">Date: <%= appointment.date %> </p>
-          <p class="card-text">Time-Slot: <%= appointment.time %></p>
-          <p class="card-text">Phone: <%= appointment.phone %></p>
-          <p class="card-text">Email: <%= appointment.email %></p>
-          <form action="/doctors/<%= doctor._id%>/appointments/<%= appointment._id %>?_method=DELETE" method="POST">
-            <button class="btn btn-sm btn-danger">Delete</button>
-          </form>
+      <% if(currentUser && appointment.author._id.equals(currentUser._id)){ %>
+        <div class="card my-3" style="max-width:600px; margin:auto;" data-aos="fade-right">
+          <div class="card-body">
+            <h5 class="card-title">Appointment with <%= appointment.name %></h5>
+            <p class="card-text">Date: <%= appointment.date %> </p>
+            <p class="card-text">Time-Slot: <%= appointment.time %></p>
+            <p class="card-text">Phone: <%= appointment.phone %></p>
+            <p class="card-text">Email: <%= appointment.email %></p>
+            <form action="/doctors/<%= doctor._id%>/appointments/<%= appointment._id %>?_method=DELETE" method="POST">
+              <button class="btn btn-sm btn-danger">Delete</button>
+            </form>
+          </div>
         </div>
-      </div>
+        <% } %>
     <% } %>
     <div class="container" data-aos="zoom-in">
       <h2 class="text-center">Make an appointment </h2>
