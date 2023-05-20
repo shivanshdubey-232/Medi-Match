@@ -19,7 +19,7 @@ router.post(
       req.login(registeredUser, (err) => {
         if (err) return next(err);
         req.flash("success", "Welcome!");
-        res.redirect("/doctors");
+        res.redirect("/index");
       });
     } catch (e) {
       req.flash("error", e.message);

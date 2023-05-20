@@ -26,6 +26,16 @@ const isLoggedIn = (req, res, next) => {
   next();
 };
 
+const isAuthor = async (req, res, next) => {
+  const { id, appointmentId } = req.params;
+  const appointment = await Appointment.findById(appointmentId);
+  if (!appointment.author.equals(req.user._id)) {
+    req.flash("error", "You do not have permission to do that !");
+    return res.redirect(`/doctors/${id}`);
+  }
+  next();
+};
+
 // ----------------------appointment route-----------------
 router.post(
   "/",
@@ -33,7 +43,7 @@ router.post(
   catchAsync(async (req, res) => {
     const doctor = await Doctor.findById(req.params.id);
     const appointment = new Appointment(req.body.appointment);
-    console.log(appointment);
+    appointment.author = req.user._id;
     doctor.appointments.push(appointment);
     await appointment.save();
     await doctor.save();
@@ -45,6 +55,7 @@ router.post(
 router.delete(
   "/:appointmentId",
   isLoggedIn,
+  isAuthor,
   catchAsync(async (req, res) => {
     await Appointment.findByIdAndDelete(req.params.appointmentId);
     await Doctor.findByIdAndUpdate(req.params.id, {
