@@ -15,49 +15,27 @@ const validatedoctor = (req, res, next) => {
   }
 };
 
-<<<<<<< HEAD
 const isLoggedIn = (req, res, next) => {
   if (!req.isAuthenticated()) {
     req.session.returnTo = req.originalUrl;
     req.flash("error", "You must be signed in first !");
     return res.redirect("/login");
-=======
-// filtered doctor search--------------------------
-router.post('/filtered',catchAsync(async(req , res)=> {
-  const doctors = await Doctor.find({});
-  console.log(req.body);
-  const {docs} = req.body;
-  console.log(docs);
-  doctors.filter(spec => spec === docs);
-  res.render('doctors/filtered' , { doctors });
-}));
-
-router.get('/', catchAsync(async (req, res) => {
-  const doctors = await Doctor.find({});
-  res.render('doctors/index', { doctors })  
-}));
-//--------------------new -------------------
-router.get('/new', (req, res) => {
-  res.render('doctors/new');
-});
-router.post('/', catchAsync(async (req, res, next) => {
-  const doctor = new Doctor(req.body.doctor);
-  console.log(req.body);
-  await doctor.save();
-  req.flash('success', 'Successfully created a new doctor !'); 
-  res.redirect(`/doctors`)
-  
-}));
-// -------------show----------------------------
-router.get('/:id', catchAsync(async (req, res,) => {
-  const doctor = await Doctor.findById(req.params.id).populate('appointments');
-  if(!doctor){
-    req.flash('error', 'Cannot find any doctor !');
-    return res.redirect('/doctors');
->>>>>>> ea7e5151b8b7c4c8804bccc6bb6d206ab8d44082
   }
   next();
 };
+
+// filtered doctor search--------------------------
+router.post(
+  "/filtered",
+  catchAsync(async (req, res) => {
+    const doctors = await Doctor.find({});
+    console.log(req.body);
+    const { docs } = req.body;
+    console.log(docs);
+    doctors.filter((spec) => spec === docs);
+    res.render("doctors/filtered", { doctors });
+  })
+);
 
 router.get(
   "/",
@@ -117,6 +95,7 @@ router.get(
 // ---------------delete doctor --------------------
 router.delete(
   "/:id",
+  isLoggedIn,
   catchAsync(async (req, res) => {
     const { id } = req.params;
     const doctor = await Doctor.findByIdAndDelete(id);
