@@ -1,0 +1,51 @@
+<%- include('../partials/head')%> <%- include('../partials/navbar')%>
+
+<h1 style="text-align: center; margin-bottom: 40px; font-weight: 900">
+  Register
+</h1>
+
+<div
+  style="
+    margin: 10px auto;
+    max-width: 600px;
+    padding: 10px;
+    box-shadow: 5px 5px 5px 5px #888888;
+  "
+>
+  <form action="/register" class="needs-validation" method="POST" novalidate>
+    <div class="mb-3">
+      <label class="form-label" for="username">Username</label>
+      <input
+        class="form-control"
+        type="text"
+        id="username"
+        name="username"
+        required
+      />
+      <div class="valid-feedback">Looks good!</div>
+    </div>
+    <div class="mb-3">
+      <label class="form-label" for="email">Email</label>
+      <input
+        class="form-control"
+        type="text"
+        id="email"
+        name="email"
+        required
+      />
+      <div class="valid-feedback">Looks good!</div>
+    </div>
+    <div class="mb-3">
+      <label class="form-label" for="password">Password</label>
+      <input
+        class="form-control"
+        type="password"
+        id="password"
+        name="password"
+        required
+      />
+      <div class="valid-feedback">Looks good!</div>
+    </div>
+    <button class="btn btn-primary">Submit</button>
+  </form>
+</div>
