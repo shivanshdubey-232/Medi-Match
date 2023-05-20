@@ -15,6 +15,15 @@ const validatedoctor = (req, res, next) => {
   }
 } 
 
+// filtered doctor search--------------------------
+router.post('/filtered',catchAsync(async(req , res)=> {
+  const doctors = await Doctor.find({});
+  console.log(req.body);
+  const {docs} = req.body;
+  console.log(docs);
+  doctors.filter(spec => spec === docs);
+  res.render('doctors/filtered' , { doctors });
+}));
 
 router.get('/', catchAsync(async (req, res) => {
   const doctors = await Doctor.find({});
