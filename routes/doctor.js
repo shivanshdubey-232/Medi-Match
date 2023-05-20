@@ -25,17 +25,28 @@ const isLoggedIn = (req, res, next) => {
 };
 
 // filtered doctor search--------------------------
-router.post(
-  "/filtered",
-  catchAsync(async (req, res) => {
-    const doctors = await Doctor.find({});
-    console.log(req.body);
-    const { docs } = req.body;
-    console.log(docs);
-    doctors.filter((spec) => spec === docs);
-    res.render("doctors/filtered", { doctors });
-  })
-);
+
+router.post('/filtered',catchAsync(async(req , res)=> {
+  const doctors = await Doctor.find({});
+  const {docs} = req.body;
+  console.log(docs);
+  let new_doctors = new Array;
+
+  for( let i in doctors)
+  {
+    console.log(doctors[i].department.toLowerCase());
+    if(doctors[i].department.toLowerCase() === docs.toLowerCase())
+    {
+      new_doctors.push(doctors[i]);
+    }
+  }
+  console.log(new_doctors);
+  if(new_doctors)
+  res.render('doctors/filtered' , { new_doctors });
+  else
+  res.send("No doctor available currently");
+}));
+
 
 router.get(
   "/",
