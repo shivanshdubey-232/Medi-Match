@@ -1,46 +1,69 @@
-<%- include('../partials/head')%>
-<%- include('../partials/navbar')%>
+<%- include('../partials/head')%> <%- include('../partials/navbar')%>
 
+<div class="container text-center">
+  <h1>Our Doctors</h1>
+  <hr />
 
-<div class="container text-center" >
-    <h1>Our Doctors</h1>
-    <hr>
-    
-    <!-- Add a new doctor link -->
-    <form action="/doctors/filtered" method="post" >
+  <!-- Add a new doctor link -->
+  <form action="/doctors/filtered" method="post">
     <label for="doc-select">Filter speciality and Search :</label>
 
     <select name="docs" id="doc-select">
-    <option value="">--Please choose an option--</option>
-    <option value="Cardiology">Cardiology</option>
-    <option value="Dermatology">Dermatology</option>
-    <option value="Orthopedics">Orthopedics</option>
-    <option value="Oncology">Oncology</option>
-    <option value="Neurology">Neurology</option>
-    <option value="Gastroenterology">Gastroenterology</option>
-    <option value="Psychiatry">Psychiatry</option>
-    <option value="Urology">Urology</option>
-    <option value="Pediatrics">Pediatrics</option>
+      <option value="">--Please choose an option--</option>
+      <option value="Cardiology">Cardiology</option>
+      <option value="Dermatology">Dermatology</option>
+      <option value="Orthopedics">Orthopedics</option>
+      <option value="Oncology">Oncology</option>
+      <option value="Neurology">Neurology</option>
+      <option value="Gastroenterology">Gastroenterology</option>
+      <option value="Psychiatry">Psychiatry</option>
+      <option value="Urology">Urology</option>
+      <option value="Pediatrics">Pediatrics</option>
     </select>
     <button>Submit</button>
-    </form>
-    
-    <br>
-    <a href="/doctors/new" class="btn btn-success my-3">+ Add a new doctor</a>
-    <br><br>
-    <% for( let doctor of doctors) { %>
-        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 col-xxl-3">
-    <div class="card text-center mb-3 bg-transparent border-success" style="background-size: cover;max-width:400px; ;box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;" data-aos="zoom-in">
-        <img src="<%= doctor.image %>" class="card-img-top card-img-can-change" alt="loading...">
-        <div class="card-body">
-            <h5 class="card-title font-weight-bold "><%= doctor.name %></h5>
-            <p class="card-text text-muted"><%= doctor.degree %>, <%= doctor.department %></p>
-            <a href="/doctors/<%= doctor._id %>" class="btn btn-success">Get Appointment</a>
-        </div>
-    </div>
-    </div>
-     <%}%> 
-    
+  </form>
 
+  <br />
+  <% if(currentUser && currentUser.username === 'admin'){ %>
+  <a href="/doctors/new" class="btn btn-success my-3">+ Add a new doctor</a>
+  <% } %>
+  <br /><br />
+  <% for( let doctor of doctors) { %>
+  <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 col-xxl-3">
+    <div
+      class="card text-center mb-3 bg-transparent border-success"
+      style="
+        background-size: cover;
+        max-width: 400px;
+        box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
+          rgba(0, 0, 0, 0.23) 0px 6px 6px;
+      "
+      data-aos="zoom-in"
+    >
+      <img
+        src="<%= doctor.image %>"
+        class="card-img-top card-img-can-change"
+        alt="loading..."
+      />
+      <div class="card-body">
+        <h5 class="card-title font-weight-bold"><%= doctor.name %></h5>
+        <p class="card-text text-muted">
+          <%= doctor.degree %>, <%= doctor.department %>
+        </p>
+        <a href="/doctors/<%= doctor._id %>" class="btn btn-success"
+          >Get Appointment</a
+        >
+      </div>
+      <!-- delete doctor button -->
+      <% if(currentUser && currentUser.username === 'admin'){ %>
+      <div class="mb-3">
+        <form action="/doctors/<%= doctor._id %>?_method=DELETE" method="POST">
+          <button class="btn btn-sm btn-danger">Delete Doctor !</button>
+        </form>
+      </div>
+      <% } %>
+    </div>
+  </div>
+  <%}%>
 </div>
 <%- include('../partials/footer')%>
