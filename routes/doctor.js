@@ -48,8 +48,8 @@ router.post(
       }
     }
     console.log(new_doctors);
-    if (new_doctors) res.render("doctors/filtered", { new_doctors });
-    else res.send("No doctor available currently");
+    res.render("doctors/filtered", { new_doctors });
+    
   })
 );
 
