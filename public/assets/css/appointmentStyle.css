@@ -12,7 +12,11 @@ textarea {
   font-family: "Poppins", sans-serif;
 }
 
-.container {
+.delete:hover{
+  color: red !important;
+  transition: color 0.5s ease;
+}
+.containerAppointment {
   position: relative;
   width: 100%;
   min-height: 100vh;
@@ -336,7 +340,7 @@ textarea.input {
 }
 
 @media (max-width: 480px) {
-  .container {
+  .containerAppointment {
     padding: 1.5rem;
   }
 
