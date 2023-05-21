@@ -14,69 +14,7 @@
     <link rel="stylesheet" href="/assets/authAssets/style.css" />
   </head>
   <body>
-    <nav
-      class="navbar navbar-expand-lg navbar-light bg-light"
-      style="
-        box-shadow: #74c52b 0px 1px 2px 0px,
-          rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
-        position: sticky;
-      "
-    >
-      <a
-        class="navbar-brand"
-        href="/index"
-        style="color: #74c52b; letter-spacing: 0.3em"
-      >
-        <img
-          src="/assets/img/smallLogo.png"
-          width="60"
-          height="60"
-          class="d-inline-block align-top img-fluid"
-          style="position: fixed; top: 0"
-          alt=""
-          id="rotateIcon"
-        />
-        <span style="position: relative; left: 4em"> MEDI-MATCH </span>
-      </a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarNavDropdown"
-        aria-controls="navbarNavDropdown"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav" style="position: relative; left: 4em">
-          <li class="nav-item">
-            <a class="nav-link" href="/index"
-              >HOME <span class="sr-only">(current)</span></a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/doctors">DOCTORS</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/gallery">GALLERY</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/about">ABOUT US</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/register">SIGN UP</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/login">SIGN IN</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/logout">SIGN OUT</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+    <%- include('../partials/navbar')%>
     <script>
       const icon = document.querySelector("#rotateIcon");
       window.addEventListener("scroll", function () {
@@ -206,30 +144,30 @@
           <div class="carousel">
             <div class="images-wrapper">
               <img
-                src="/assets/authAssets/img/image1.png"
+                src="/assets/authAssets/img/image1.jpeg"
                 class="image img-1 show"
                 alt=""
               />
               <img
-                src="/assets/authAssets/img/image2.png"
+                src="/assets/authAssets/img/image2.jpeg"
                 class="image img-2"
                 alt=""
               />
               <img
-                src="/assets/authAssets/img/image3.png"
+                src="/assets/authAssets/img/image2.jpeg"
                 class="image img-3"
                 alt=""
               />
             </div>
 
             <div class="text-slider">
-              <!-- <div class="text-wrap">
+              <div class="text-wrap">
                 <div class="text-group">
-                  <h2>Create your own courses</h2>
-                  <h2>Customize as you like</h2>
-                  <h2>Invite students to your class</h2>
+                  <h2>Trust</h2>
+                  <h2>Bond</h2>
+                  <h2>Satisfaction</h2>
                 </div>
-              </div> -->
+              </div>
 
               <div class="bullets">
                 <span class="active" data-value="1"></span>
