@@ -360,6 +360,9 @@ main.sign-in-mode .carousel {
     width: 100%;
   }
 }
+.ind-text {
+  margin-top: -3px;
+}
 
 @media (max-width: 530px) {
   main {
