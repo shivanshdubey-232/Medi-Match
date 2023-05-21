@@ -19,7 +19,7 @@
       alt=""
       id="rotateIcon"
     />
-    <span style="margin-left:4em; margin-right:0em;"> MEDI-MATCH </span>
+    <span style="margin-left: 4em; margin-right: 0em"> MEDI-MATCH </span>
   </a>
   <button
     class="navbar-toggler"
@@ -33,7 +33,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav" style="padding-left:2em;">
+    <ul class="navbar-nav" style="padding-left: 2em">
       <li class="nav-item">
         <a class="nav-link" href="/index"
           >HOME <span class="sr-only">(current)</span></a
@@ -49,12 +49,12 @@
         <a class="nav-link" href="/about">ABOUT US</a>
       </li>
     </ul>
-    <div class="navbar-nav ml-auto" style="padding-left:2em;"> 
+    <div class="navbar-nav ml-auto" style="padding-left: 2em">
       <% if (! currentUser){ %>
-        <a class="nav-link"  href="/Register">REGISTER</a>
-        <a class="nav-link" href="/login">LOG IN</a>
+      <a class="nav-link" href="/Register">REGISTER</a>
+      <a class="nav-link" href="/login">LOG IN</a>
       <% } else { %>
-        <a class="nav-link" href="/logout">LOG OUT</a>
+      <a class="nav-link" href="/logout">LOG OUT</a>
       <% } %>
     </div>
   </div>
