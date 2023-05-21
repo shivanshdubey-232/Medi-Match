@@ -24,29 +24,34 @@ const isLoggedIn = (req, res, next) => {
   next();
 };
 
+const isAdmin = async (req, res, next) => {
+  if (req.user.username !== "admin") {
+    req.flash("error", "You do not have permission to do that !");
+    return res.redirect(`/doctors`);
+  }
+  next();
+};
 // filtered doctor search--------------------------
 
-router.post('/filtered',catchAsync(async(req , res)=> {
-  const doctors = await Doctor.find({});
-  const {docs} = req.body;
-  console.log(docs);
-  let new_doctors = new Array;
+router.post(
+  "/filtered",
+  catchAsync(async (req, res) => {
+    const doctors = await Doctor.find({});
+    const { docs } = req.body;
+    console.log(docs);
+    let new_doctors = new Array();
 
-  for( let i in doctors)
-  {
-    console.log(doctors[i].department.toLowerCase());
-    if(doctors[i].department.toLowerCase() === docs.toLowerCase())
-    {
-      new_doctors.push(doctors[i]);
+    for (let i in doctors) {
+      console.log(doctors[i].department.toLowerCase());
+      if (doctors[i].department.toLowerCase() === docs.toLowerCase()) {
+        new_doctors.push(doctors[i]);
+      }
     }
-  }
-  console.log(new_doctors);
-  if(new_doctors)
-  res.render('doctors/filtered' , { new_doctors });
-  else
-  res.send("No doctor available currently");
-}));
-
+    console.log(new_doctors);
+    if (new_doctors) res.render("doctors/filtered", { new_doctors });
+    else res.send("No doctor available currently");
+  })
+);
 
 router.get(
   "/",
@@ -56,11 +61,12 @@ router.get(
   })
 );
 //--------------------new -------------------
-router.get("/new", (req, res) => {
+router.get("/new", isAdmin, (req, res) => {
   res.render("doctors/new");
 });
 router.post(
   "/",
+  isAdmin,
   catchAsync(async (req, res, next) => {
     const doctor = new Doctor(req.body.doctor);
     console.log(req.body);
@@ -106,6 +112,7 @@ router.get(
 // ---------------delete doctor --------------------
 router.delete(
   "/:id",
+  isAdmin,
   isLoggedIn,
   catchAsync(async (req, res) => {
     const { id } = req.params;
