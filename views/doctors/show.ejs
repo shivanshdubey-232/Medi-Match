@@ -1,58 +1,39 @@
 <%- include('../partials/head')%>
 <%- include('../partials/navbar')%>
 
+<link rel="stylesheet" href="assets/css/appointmentStyle.css">
+<script src="assets/js/appointmentScript.js"></script>
 <div class="container my-5 text-center" >
-  <h3 class="text-center">Showing appointments for <%= doctor.name %></h3>
   <div class="container">
-    <% if(doctor.appointments.length === 0){ %>
-      <h5 class="muted text-center p-5">No appointments yet</h5>
-    <% } %>
-    <% for(let appointment of doctor.appointments ){ %>
-      <% if(currentUser && appointment.author._id.equals(currentUser._id)){ %>
-        <div class="card my-3" style="max-width:600px; margin:auto;" data-aos="fade-right">
-          <div class="card-body">
-            <h5 class="card-title">Appointment with <%= appointment.name %></h5>
-            <p class="card-text">Date: <%= appointment.date %> </p>
-            <p class="card-text">Time-Slot: <%= appointment.time %></p>
-            <p class="card-text">Phone: <%= appointment.phone %></p>
-            <p class="card-text">Email: <%= appointment.email %></p>
-            <form action="/doctors/<%= doctor._id%>/appointments/<%= appointment._id %>?_method=DELETE" method="POST">
-              <button class="btn btn-sm btn-danger">Delete</button>
-            </form>
+    <div class="container" data-aos="zoom-in">
+      <h2 class="text-center">Make an appointment with <%= doctor.name %></h2>
+      <form action="/doctors/<%= doctor._id %>/appointments" method="POST" style="max-width : 600px; margin:auto;" class="mb-3 validated-form" data-aos="zoom-in" novalidate>
+        <div>
+          <label class="form-label" for="name">Patient's Name</label>
+          <input class="form-control mb-3" type="text" name="appointment[name]" id="name" required>
+          <div class="valid-feedback">
+            Looks Good
           </div>
         </div>
-        <% } %>
-    <% } %>
-    <div class="container" data-aos="zoom-in">
-      <h2 class="text-center">Make an appointment </h2>
-        <form action="/doctors/<%= doctor._id %>/appointments" method="POST" style="max-width : 600px; margin:auto;" class="mb-3 validated-form" data-aos="zoom-in" novalidate>
-          <div>
-            <label class="form-label" for="name">Patient's Name</label>
-            <input class="form-control mb-3" type="text" name="appointment[name]" id="name" required>
-            <div class="valid-feedback">
-                  Looks Good
-            </div>
+        <div>
+          <label class="form-label" for="phone">Patient's Phone</label>
+          <input class="form-control mb-3" type="text" name="appointment[phone]" id="phone" required>
+          <div class="valid-feedback">
+            Looks Good
           </div>
-          <div>
-            <label class="form-label" for="phone">Patient's Phone</label>
-            <input class="form-control mb-3" type="text" name="appointment[phone]" id="phone" required>
-            <div class="valid-feedback">
-                  Looks Good
-            </div>
-          </div>
+        </div>
           <div>
             <label class="form-label" for="email">Patient's Email</label>
             <input class="form-control mb-3" type="email" name="appointment[email]" id="email" required>
             <div class="valid-feedback">
-                  Looks Good          
+              Looks Good          
             </div>
           </div>
           <div>
-  
             <label class="form-label" for="date">Appointment Date</label>
             <input class="form-control mb-3" type="text" name="appointment[date]" id="date" required>
             <div class="valid-feedback">
-                  Looks Good      
+              Looks Good      
             </div>
           </div>
           <div>
@@ -60,23 +41,38 @@
             <select class="form-control mb-3" name="appointment[time]" id="time" required>
               <% for(let slot of allSlots){ %>
                 <% if (!appointmentSlots.includes(slot)){%>
-                <option value="<%= slot %>"><%= slot %></option>
+                  <option value="<%= slot %>"><%= slot %></option>
                 <% } %>
               <% } %>
             </select>
             <div class="valid-feedback">
-                  Looks Good  
+              Looks Good  
             </div>
           </div>
-            <button type="submit" class="btn btn-success mb-3">Make an appointment</button>
-        </form>
-
-
-    </div>
-    </div>
-  </div>
-
-  
-
+          <button type="submit" class="btn btn-success mb-3">Make an appointment</button>
+      </form>
+          </div>
+          
+          <h3 class="text-center">Your appointments with <%= doctor.name %></h3>
+          <% if(doctor.appointments.length === 0){ %>
+            <h5 class="muted text-center p-5">No appointments yet...</h5>
+          <% } %>
+          <% for(let appointment of doctor.appointments ){ %>
+            <% if(currentUser && appointment.author._id.equals(currentUser._id)){ %>
+              <div class="card my-3" style="max-width:600px; margin:auto;" data-aos="fade-right">
+                <div class="card-body">
+                  <h5 class="card-title">Appointment with <%= appointment.name %></h5>
+                  <p class="card-text">Date: <%= appointment.date %> </p>
+                  <p class="card-text">Time-Slot: <%= appointment.time %></p>
+                  <p class="card-text">Phone: <%= appointment.phone %></p>
+                  <p class="card-text">Email: <%= appointment.email %></p>
+                  <form action="/doctors/<%= doctor._id%>/appointments/<%= appointment._id %>?_method=DELETE" method="POST">
+                    <button class="btn btn-sm btn-danger">Delete</button>
+                  </form>
+                </div>
+              </div>
+              <% } %>
+          <% } %>
+  </div>   
 </div>
 <%- include('../partials/footer')%>
