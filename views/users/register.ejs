@@ -1,51 +1,193 @@
-<%- include('../partials/head')%> <%- include('../partials/navbar')%>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MediMatch</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/assets/authAssets/styleRegister.css" />
+  </head>
+  <body>
+    <%- include('../partials/navbar')%>
+    <script>
+      const icon = document.querySelector("#rotateIcon");
+      window.addEventListener("scroll", function () {
+        icon.style.transform = "rotate(" + window.pageYOffset + "deg)";
+      });
+    </script>
+    <div class="container my-3"><%- include('../partials/flash') %></div>
+    <main>
+      <div class="box">
+        <div class="inner-box">
+          <div class="forms-wrap">
+            <form
+              action="/register"
+              autocomplete="off"
+              class="sign-up-form"
+              method="POST"
+            >
+              <div class="logo">
+                <img src="/assets/img/smallLogo.png" alt="MediMatch" />
+                <h4>MediMatch</h4>
+              </div>
 
-<h1 style="text-align: center; margin-bottom: 40px; font-weight: 900">
-  Register
-</h1>
+              <div class="heading">
+                <h2>Get Started</h2>
+                <h6>Already have an account?</h6>
+                <a href="#" class="toggle">Sign in</a>
+              </div>
 
-<div
-  style="
-    margin: 10px auto;
-    max-width: 600px;
-    padding: 10px;
-    box-shadow: 5px 5px 5px 5px #888888;
-  "
->
-  <form action="/register" class="needs-validation" method="POST" novalidate>
-    <div class="mb-3">
-      <label class="form-label" for="username">Username</label>
-      <input
-        class="form-control"
-        type="text"
-        id="username"
-        name="username"
-        required
-      />
-      <div class="valid-feedback">Looks good!</div>
-    </div>
-    <div class="mb-3">
-      <label class="form-label" for="email">Email</label>
-      <input
-        class="form-control"
-        type="text"
-        id="email"
-        name="email"
-        required
-      />
-      <div class="valid-feedback">Looks good!</div>
-    </div>
-    <div class="mb-3">
-      <label class="form-label" for="password">Password</label>
-      <input
-        class="form-control"
-        type="password"
-        id="password"
-        name="password"
-        required
-      />
-      <div class="valid-feedback">Looks good!</div>
-    </div>
-    <button class="btn btn-primary">Submit</button>
-  </form>
-</div>
+              <div class="actual-form">
+                <div class="input-wrap">
+                  <input
+                    type="text"
+                    minlength="4"
+                    class="input-field"
+                    autocomplete="off"
+                    name="username"
+                    required
+                  />
+                  <label>Username</label>
+                </div>
+
+                <div class="input-wrap">
+                  <input
+                    type="email"
+                    class="input-field"
+                    autocomplete="off"
+                    name="email"
+                    required
+                  />
+                  <label>Email</label>
+                </div>
+
+                <div class="input-wrap">
+                  <input
+                    type="password"
+                    minlength="4"
+                    class="input-field"
+                    autocomplete="off"
+                    name="password"
+                    required
+                  />
+                  <label>Password</label>
+                </div>
+
+                <input type="submit" value="Sign Up" class="sign-btn" />
+
+                <p class="text">
+                  By signing up, I agree to the
+                  <a href="#">Terms of Services</a> and
+                  <a href="#">Privacy Policy</a>
+                </p>
+              </div>
+            </form>
+
+            <form
+              action="/login"
+              autocomplete="off"
+              class="sign-in-form"
+              method="POST"
+            >
+              <div class="logo">
+                <img src="/assets/img/smallLogo.png" alt="MediMatch" />
+                <h4>MediMatch</h4>
+              </div>
+
+              <div class="heading">
+                <h2>Welcome Back</h2>
+                <h6>Not registred yet?</h6>
+                <a href="#" class="toggle">Sign up</a>
+              </div>
+
+              <div class="actual-form">
+                <div class="input-wrap">
+                  <input
+                    type="text"
+                    minlength="4"
+                    class="input-field"
+                    autocomplete="off"
+                    name="username"
+                    required
+                  />
+                  <label>Username</label>
+                </div>
+
+                <div class="input-wrap">
+                  <input
+                    type="password"
+                    minlength="4"
+                    class="input-field"
+                    autocomplete="off"
+                    name="password"
+                    required
+                  />
+                  <label>Password</label>
+                </div>
+
+                <input type="submit" value="Sign In" class="sign-btn" />
+
+                <p class="text">
+                  Forgotten your password or you login datails?
+                  <a href="#">Get help</a> signing in
+                </p>
+              </div>
+            </form>
+          </div>
+
+          <div class="carousel">
+            <div class="images-wrapper">
+              <img
+                src="/assets/authAssets/img/image1.png"
+                class="image img-1 show"
+                alt=""
+              />
+              <img
+                src="/assets/authAssets/img/image2.png"
+                class="image img-2"
+                alt=""
+              />
+              <img
+                src="/assets/authAssets/img/image3.png"
+                class="image img-3"
+                alt=""
+              />
+            </div>
+
+            <div class="text-slider">
+              <div class="text-wrap">
+                <div class="text-group">
+                  <h2>Trust</h2>
+                  <h2>Bond</h2>
+                  <h2>Satisfaction</h2>
+                </div>
+              </div>
+
+              <div class="bullets">
+                <span class="active" data-value="1"></span>
+                <span data-value="2"></span>
+                <span data-value="3"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Javascript file -->
+
+    <script src="/assets/authAssets/appRegister.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
+<%- include('../partials/footer')%>

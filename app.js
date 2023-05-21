@@ -37,7 +37,7 @@ const appointments = require("./routes/appointments");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static("public"));
 
 const sessionConfig = {
   secret: "thisisasecret",
