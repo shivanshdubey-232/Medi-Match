@@ -6,34 +6,37 @@
 </script>
 
 <!-- Slider -->
-<center>
-  <div id="slide" style="display: inline-block; width: 85%" data-aos="slide">
-    <div class="slideshow-container">
-      <div class="mySlides fade">
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <img src="assets/img/slider/1.jpg" alt="Slider1" style="width: 100%" />
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
-      </div>
-      <div class="mySlides fade">
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <img src="assets/img/slider/2.jpg" alt="Slider2" style="width: 100%" />
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
-      </div>
-      <div class="mySlides fade">
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <img src="assets/img/slider/3.jpg" alt="Slider3" style="width: 100%" />
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
-      </div>
+
+<div
+  id="slide"
+  style="display: inline-block; width: 100%; margin: 0 auto"
+  data-aos="slide"
+>
+  <div class="slideshow-container">
+    <div class="mySlides fade">
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <img src="assets/img/slider/1.jpg" alt="Slider1" style="width: 100%" />
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
     </div>
-    <br />
-    <div style="text-align: center">
-      <span class="dot" onclick="currentSlide(1)"></span>
-      <span class="dot" onclick="currentSlide(2)"></span>
-      <span class="dot" onclick="currentSlide(3)"></span>
-      <span class="dot" onclick="currentSlide(4)"></span>
+    <div class="mySlides fade">
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <img src="assets/img/slider/2.jpg" alt="Slider2" style="width: 100%" />
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <div class="mySlides fade">
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <img src="assets/img/slider/3.jpg" alt="Slider3" style="width: 100%" />
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
     </div>
   </div>
-</center>
+  <br />
+  <div style="text-align: center">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+    <span class="dot" onclick="currentSlide(4)"></span>
+  </div>
+</div>
 
 <script>
   var slideIndex = 0;
