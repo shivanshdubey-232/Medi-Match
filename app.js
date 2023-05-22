@@ -83,6 +83,10 @@ app.get("/about", (req, res) => {
 app.get("/gallery", (req, res) => {
   res.render("gallery");
 });
+// Predict disease route---------------------------
+app.get('/predict', (req, res) => {
+  res.render('predict.ejs');
+});
 //------------------error handling------------------
 app.all("*", (req, res, next) => {
   next(new ExpressError("Page not found !", 404));
