@@ -1,0 +1,17 @@
+.welcomecss{
+  margin-top:4em;
+  width:100% !important;
+  margin: auto;
+}
+@media(max-width:480px){
+  .welcomecss{
+    margin-top:4em;
+    width:100% !important;
+    margin: auto;
+  }
+  .hsopital-image{
+    display:none;
+
+  }
+
+}

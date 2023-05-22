@@ -5,6 +5,8 @@
   });
 </script>
 
+<!-- special css file for index -->
+<link rel="stylesheet" href="/assets/css/styleIndex.css">
 <!-- Slider -->
 
 <div
@@ -61,7 +63,7 @@
     dots[slideIndex - 1].className += " active";
     setTimeout(showSlides, 8000); // Change image every 8 seconds
   }
-
+  
   function plusSlides(position) {
     slideIndex += position;
     if (slideIndex > slides.length) {
@@ -78,7 +80,7 @@
     slides[slideIndex - 1].style.display = "block";
     dots[slideIndex - 1].className += " active";
   }
-
+  
   function currentSlide(index) {
     if (index > slides.length) {
       index = 1;
