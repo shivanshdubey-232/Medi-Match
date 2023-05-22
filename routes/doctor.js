@@ -37,6 +37,7 @@ router.post(
   "/filtered",
   catchAsync(async (req, res) => {
     const doctors = await Doctor.find({});
+    console.log(req.body);
     const { docs } = req.body;
     console.log(docs);
     let new_doctors = new Array();

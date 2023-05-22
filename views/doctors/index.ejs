@@ -6,61 +6,50 @@
 
   <!-- Add a new doctor link -->
   <form action="/doctors/filtered" method="post">
-    <label for="doc-select">Filter speciality and Search :</label>
-
-    <select name="docs" id="doc-select">
-      <option value="">--Please choose an option--</option>
-      <option value="Cardiology">Cardiology</option>
-      <option value="Dermatology">Dermatology</option>
-      <option value="Orthopedics">Orthopedics</option>
-      <option value="Oncology">Oncology</option>
-      <option value="Neurology">Neurology</option>
-      <option value="Gastroenterology">Gastroenterology</option>
-      <option value="Psychiatry">Psychiatry</option>
-      <option value="Urology">Urology</option>
-      <option value="Pediatrics">Pediatrics</option>
-    </select>
-    <button>Submit</button>
+    <!-- <label for="doc-select">Filter speciality and Search :</label> -->
+    <div style="display : inline-block;" class=" mx-2 select-container">
+      <select name="docs" id="doc-select">
+        <option value="all">Filter</option>
+        <option value="Cardiology">Cardiology</option>
+        <option value="Dermatology">Dermatology</option>
+        <option value="Orthopedics">Orthopedics</option>
+        <option value="Oncology">Oncology</option>
+        <option value="Neurology">Neurology</option>
+        <option value="Gastroenterology">Gastroenterology</option>
+        <option value="Psychiatry">Psychiatry</option>
+        <option value="Urology">Urology</option>
+        <option value="Pediatrics">Pediatrics</option>
+      </select>
+    </div>
+    <button class="btn-sm btn-can-change" style=" display :inline ;background-color: #72c02c; border : 0.1px solid black ; color : white;">Submit</button>
   </form>
+
 
   <br />
   <% if(currentUser && currentUser.username === 'admin'){ %>
-  <a href="/doctors/new" class="btn btn-success my-3">+ Add a new doctor</a>
+  <a href="/doctors/new" class="btn my-3 btn-can-change">+ Add a new doctor</a>
   <% } %>
   <br /><br />
   <div class="row">
     <% for( let doctor of doctors) { %>
     <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 col-xxl-3">
-      <div
-        class="card text-center mb-3 bg-transparent border-success"
-        style="
+      <div class="card text-center mb-3 bg-transparent border-success" style="
           background-size: cover;
           max-width: 400px;
           box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
             rgba(0, 0, 0, 0.23) 0px 6px 6px;
-        "
-        data-aos="zoom-in"
-      >
-        <img
-          src="<%= doctor.image %>"
-          class="card-img-top card-img-can-change"
-          alt="loading..."
-        />
+        " data-aos="zoom-in">
+        <img src="<%= doctor.image %>" class="card-img-top card-img-can-change" alt="loading..." />
         <div class="card-body">
           <h5 class="card-title font-weight-bold"><%= doctor.name %></h5>
           <p class="card-text text-muted">
             <%= doctor.degree %>, <%= doctor.department %>
           </p>
-          <a href="/doctors/<%= doctor._id %>" class="btn btn-success"
-            >Get Appointment</a
-          >
+          <a href="/doctors/<%= doctor._id %>" class="btn btn-can-change">Get Appointment</a>
           <% if(currentUser && currentUser.username === 'admin'){ %>
           <div class="mt-3 mb-3">
-            <form
-              action="/doctors/<%= doctor._id %>?_method=DELETE"
-              method="POST"
-            >
-              <button class="btn btn-sm btn-danger">Delete Doctor !</button>
+            <form action="/doctors/<%= doctor._id %>?_method=DELETE" method="POST">
+              <button class="btn btn-sm del-btn">Delete Doctor !</button>
             </form>
           </div>
           <% } %>

@@ -836,9 +836,31 @@ h6 i {
 
 /*card css used in index.ejs and filtered.ejs*/
 .card-img-can-change {
+
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center center;
 	width: 100%;
 	height: 280px;
+}
+
+.btn-can-change {
+	background-color: #72c02c;
+	color: white;
+}
+
+.btn-can-change:hover {
+	background-color: #60ab1d;
+	color: white;
+	cursor: pointer;
+}
+
+.del-btn {
+	background-color: #d9534f;
+	color: #fff;
+
+}
+
+.del-btn:hover {
+	background-color: #c02620;
 }
