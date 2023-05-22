@@ -33,11 +33,6 @@ const isAdmin = async (req, res, next) => {
 };
 
 
-// Predict disease route---------------------------
-router.get('/predict', catchAsync(async (req, res) => {
-  res.render('predict.ejs')
-}));
-
 // filtered doctor search--------------------------
 
 router.post(
