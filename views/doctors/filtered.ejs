@@ -17,11 +17,11 @@
 	background-repeat: no-repeat;
 	background-position: center center;
 	width: 100%;
-	height: 300px;" alt="loading...">
+	height: 300px;" alt="loading..." class="card-img-can-change">
         <div class="card-body">
           <h5 class="card-title font-weight-bold "><%= doctor.name %></h5>
           <p class="card-text text-muted"><%= doctor.degree %>, <%= doctor.department %></p>
-          <a href="/doctors/<%= doctor._id %>" class="btn btn-success">Get Appointment</a>
+          <a href="/doctors/<%= doctor._id %>" class="btn btn-success btn-can-change">Get Appointment</a>
         </div>
       </div>
     </div>
