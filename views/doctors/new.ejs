@@ -1,51 +1,89 @@
-<%- include('../partials/head') %>
-<%- include('../partials/navbar') %>
-    <div class="container" style="max-width: 600px">
-        <h1>Add Doctor</h1>
-      
-        <form action='/doctors' method="POST" novalidate class="validated-form">
-          <div>
-              <label for="name">Doctor Name:</label>
-              <input class="form-control" type="text" id="name" name="doctor[name]" required>
-              <div class="valid-feedback">
-                  Looks Good  
-              </div>
-          </div>
-          <div>
-              <label for="degree">Degree:</label>
-              <input class="form-control" type="text" id="degree" name="doctor[degree]" required>
-              <div class="valid-feedback">
-                  Looks Good  
-              </div>
-          </div>
-          <div>
-              <label for="department">Department:</label>
-              <select class="form-control" id="department" name="doctor[department]" required>
-                <option value="">Select Department</option>
-                <option value="Cardiology">Cardiology</option>
-                <option value="Dermatology">Dermatology</option>
-                <option value="Gastroenterology">Gastroenterology</option>
-                <option value="Neurology">Neurology</option>
-                <option value="Oncology">Oncology</option>
-                <option value="Orthopedics">Orthopedics</option>
-                <option value="Pediatrics">Pediatrics</option>
-                <option value="Psychiatry">Psychiatry</option>
-                <option value="Urology">Urology</option>
-              </select>
-              <div class="valid-feedback">
-                  Looks Good  
-              </div>
-          </div>
-          <div class="mb-3">
-              <label for="image">Doctor Image URL:</label>
-              <input  class="form-control" type="url" id="image" name="doctor[image]" required>
-              <div class="valid-feedback">
-                  Looks Good  
-              </div>
-          </div>
-      
-          <button class="btn btn-success" type="submit">+ Add Doctor</button>
-        </form>
-        
-    </div>
-    <%- include("../partials/footer") %>
+<%- include('../partials/head') %> <%- include('../partials/navbar') %>
+
+        <!-- importing resources -->
+        <link rel="stylesheet" href="/assets/css/appointmentStyle.css" />
+
+        <div class="container">
+            <div class="contiainerAppointment">
+                <span class="big-circle"></span>
+                <img src="/assets/img/appointment/shape.png" class="square" alt="" />
+                <div class="form">
+                    <div class="contact-form">
+                        <span class="circle one"></span>
+                        <span class="circle two"></span>
+                        <form action="/doctors" method="POST" novalidate class="mb-3 validated-form" data-aos="zoom-in"
+                            style="max-width: 600px; margin: auto">
+                            <h3 class="title">Add Doctor</h3>
+                            <div class="input-container">
+                                <input class="input" type="text" id="name" name="doctor[name]" required />
+                                <label for="">Doctor's Name</label>
+                                <span>Doctor's Name</span>
+                            </div>
+                            <div class="input-container">
+                                <label for="degree">Degree</label>
+                                <input class="input" type="text" id="degree" name="doctor[degree]" required />
+                                <span>Degree</span>
+                            </div>
+                            <div class="input-container">
+                                <select class="input" id="department" name="doctor[department]" required>
+                                    <option value="">Select Department</option>
+                                    <option value="Cardiology">Cardiology</option>
+                                    <option value="Dermatology">Dermatology</option>
+                                    <option value="Gastroenterology">Gastroenterology</option>
+                                    <option value="Neurology">Neurology</option>
+                                    <option value="Oncology">Oncology</option>
+                                    <option value="Orthopedics">Orthopedics</option>
+                                    <option value="Pediatrics">Pediatrics</option>
+                                    <option value="Psychiatry">Psychiatry</option>
+                                    <option value="Urology">Urology</option>
+                                </select>
+                            </div>
+                            <div class="input-container" class="mb-3">
+                                <label for="image">Doctor Image URL</label>
+                                <input class="input" type="url" id="image" name="doctor[image]" required />
+                                <span>Doctor Image URL</span>
+                            </div>
+                            <button class="btn btn-success"  style="width:100%;" type="submit">+ Add Doctor</button>
+                        </form>
+                    </div>
+                    <div class="contact-info">
+                        <h3 class="text">Contact Us </h3>
+                        <div class="info" data-aos="fade-left">
+                            <div class="information">
+                                <img src="/assets/img/appointment/location.png" class="icon" alt="" />
+                                <p>92 Cherry Drive Uniondale, NY 11553</p>
+                            </div>
+                            <div class="information">
+                                <img src="/assets/img/appointment/email.png" class="icon" alt="" />
+                                <p>lorem@ipsum.com</p>
+                            </div>
+                            <div class="information">
+                                <img src="/assets/img/appointment/phone.png" class="icon" alt="" />
+                                <p>123-456-789</p>
+                            </div>
+                            <div class="social-media">
+                                <p>Connect with us :</p>
+                                <div class="social-icons">
+                                    <a href="#">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
+                                    <a href="#">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                    <a href="#">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                    <a href="#">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+            <script src="/assets/js/appointmentScript.js"></script>
+            <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+        <%- include("../partials/footer") %>
