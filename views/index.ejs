@@ -1,15 +1,13 @@
-<%- include('partials/head')%>
-<%- include('partials/navbar')%>
+<%- include('partials/head')%> <%- include('partials/navbar')%>
 <script>
   AOS.init({
     duration: 1200,
-  })
+  });
 </script>
-
 
 <!-- Slider -->
 <center>
-  <div id="slide" style=" display:inline-block;width:85%" data-aos="slide">
+  <div id="slide" style="display: inline-block; width: 85%" data-aos="slide">
     <div class="slideshow-container">
       <div class="mySlides fade">
         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -98,27 +96,34 @@
 <!-- End of Slider -->
 
 <!--=== Welcome to Unity===-->
-<div class="container content-md welcomeSection" style="background-color : white; width : 1000px" data-aos="fade-right">
+<div
+  class="container content-md welcomeSection"
+  style="background-color: white; width: 1000px"
+  data-aos="fade-right"
+>
   <div class="row section1">
-    <div class="col-md-6" style="margin-bottom: 40px" style="border:2px solid black; background:green;">
+    <div
+      class="col-md-6"
+      style="margin-bottom: 40px"
+      style="border: 2px solid black; background: green"
+    >
       <h2 class="title-v2">
         WELCOME TO <span style="color: #72c02c"> MEDI-MATCH </span>
       </h2>
-      <p style="text-align: justify; font-size: 14px">
-        Medi-Match hospitals are a top-tier hospital chain with
-        state-of-the-art healthcare facilities. It has multiple
-        departments namely General medicine, Orthopedics, cardiology, and
-        neuroscience. The management provides best facilities at
-        reasonable prices. It works to achieve the motto of"health is
-        wealth". It has 5000 beds and 800 full-time staff to cater to the
-        needs of the patients. We are the largest hospital chain in India.
-        We are currently in 20 cities and in 4 countries.
+      <p style="text-align: justify; font-size: 1.5em">
+        Medi-Match hospitals are a top-tier hospital chain with state-of-the-art
+        healthcare facilities. It has multiple departments namely General
+        medicine, Orthopedics, cardiology, and neuroscience. The management
+        provides best facilities at reasonable prices. It works to achieve the
+        motto of"health is wealth". It has 5000 beds and 800 full-time staff to
+        cater to the needs of the patients. We are the largest hospital chain in
+        India. We are currently in 20 cities and in 4 countries.
       </p>
       <br />
       <a href="about.html" class="btn-u btn-brd btn-brd-hover">Read More</a>
     </div>
     <div class="col-md-6 overflow-h" data-aos="fade-left">
-      <img style="border-radius: 50px; margin-left: 30px" src="assets/img/bg/1.jpg" alt="" />
+      <img style="border-radius: 50px" src="assets/img/bg/1.jpg" alt="" />
     </div>
   </div>
 </div>
@@ -199,8 +204,7 @@
           <div style="border-radius: 10px" class="pricing-v9 hover-effect">
             <div class="pricing-v9-head">
               <h3 class="h3">
-                <span class="g-color-default">UNITY</span> Platinum
-                Wellness
+                <span class="g-color-default">UNITY</span> Platinum Wellness
               </h3>
             </div>
             <ul style="list-style-type: none">
@@ -221,6 +225,6 @@
   </div>
 </section>
 <!-- End PLANS -->
-<hr>
+<hr />
 
 <%- include('partials/footer')%>
