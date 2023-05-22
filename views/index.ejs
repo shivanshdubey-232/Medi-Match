@@ -5,14 +5,13 @@
   });
 </script>
 
-<!-- special css file for index -->
-<link rel="stylesheet" href="/assets/css/styleIndex.css">
 <!-- Slider -->
 
 <div
   id="slide"
-  style="display: inline-block; width: 100%; margin: 0 auto"
-  data-aos="slide"
+  class="container-fluid"
+  style="display: inline-block; width: 100%; margin:auto;"
+  data-aos="zoom-in"
 >
   <div class="slideshow-container">
     <div class="mySlides fade">
@@ -31,7 +30,7 @@
       <a class="next" onclick="plusSlides(1)">&#10095;</a>
     </div>
   </div>
-  <br />
+  <br/>
   <div style="text-align: center">
     <span class="dot" onclick="currentSlide(1)"></span>
     <span class="dot" onclick="currentSlide(2)"></span>
@@ -63,7 +62,7 @@
     dots[slideIndex - 1].className += " active";
     setTimeout(showSlides, 8000); // Change image every 8 seconds
   }
-  
+
   function plusSlides(position) {
     slideIndex += position;
     if (slideIndex > slides.length) {
@@ -80,7 +79,7 @@
     slides[slideIndex - 1].style.display = "block";
     dots[slideIndex - 1].className += " active";
   }
-  
+
   function currentSlide(index) {
     if (index > slides.length) {
       index = 1;
@@ -100,8 +99,18 @@
 
 <!-- End of Slider -->
 
-<!--=== Welcome to Unity===-->
-
+<!--=== Welcome to MEDI-MATCH===-->
+<div
+  class="container content-md welcomeSection"
+  style="background-color: white; width: 100%; margin-top: 5px"
+  data-aos="fade-right"
+>
+  <div class="row section1" style="margin-left: 0">
+    <div
+      class="col-md-6"
+      style="margin-bottom: 40px"
+      style="border: 2px solid black; background: green"
+    >
       <h2 class="title-v2">
         WELCOME TO <span style="color: #72c02c"> MEDI-MATCH </span>
       </h2>
@@ -134,11 +143,11 @@
       <h2>Health Packages</h2>
       <div class="row">
         <!-- Pricing Item -->
-        <div class="col-md-3 col-xs-6 col-2xs-12">
+        <div class="col-md-3 col-xs-6 col-2xs-12" data-aos="zoom-in">
           <div style="border-radius: 10px" class="pricing-v9 hover-effect">
             <div class="pricing-v9-head">
               <h3 class="h3">
-                <span class="g-color-default">UNITY</span> Basic wellness
+                <span class="g-color-default">MEDI-MATCH</span> Basic wellness
               </h3>
             </div>
             <ul style="list-style-type: none">
@@ -155,11 +164,11 @@
         </div>
         <!-- /Pricing Item -->
         <!-- Pricing Item -->
-        <div class="col-md-3 col-xs-6 col-2xs-12">
+        <div class="col-md-3 col-xs-6 col-2xs-12" data-aos="zoom-in">
           <div style="border-radius: 10px" class="pricing-v9 hover-effect">
             <div class="pricing-v9-head">
               <h3 class="h3">
-                <span class="g-color-default">UNITY</span> Gold Wellness
+                <span class="g-color-default">MEDI-MATCH</span> Gold Wellness
               </h3>
             </div>
             <ul style="list-style-type: none">
@@ -176,11 +185,11 @@
         </div>
         <!-- /Pricing Item -->
         <!-- Pricing Item -->
-        <div class="col-md-3 col-xs-6 col-2xs-12">
+        <div class="col-md-3 col-xs-6 col-2xs-12" data-aos="zoom-in">
           <div style="border-radius: 10px" class="pricing-v9 hover-effect">
             <div class="pricing-v9-head">
               <h3 class="h3">
-                <span class="g-color-default">UNITY</span> Happy Heart
+                <span class="g-color-default">MEDI-MATCH</span> Happy Heart
               </h3>
             </div>
             <ul style="list-style-type: none">
@@ -188,7 +197,6 @@
               <li>ECG</li>
               <li>Chest X-RAY</li>
               <li>FBS</li>
-              <li>Basic Wellness Included</li>
               <li>&nbsp;</li>
             </ul>
             <div class="pricing-v9-price">
@@ -198,11 +206,11 @@
         </div>
         <!-- /Pricing Item -->
         <!-- Pricing Item -->
-        <div class="col-md-3 col-xs-6 col-2xs-12">
+        <div class="col-md-3 col-xs-6 col-2xs-12" data-aos="zoom-in">
           <div style="border-radius: 10px" class="pricing-v9 hover-effect">
             <div class="pricing-v9-head">
               <h3 class="h3">
-                <span class="g-color-default">UNITY</span> Platinum Wellness
+                <span class="g-color-default">MEDI-MATCH</span> Platinum Wellness
               </h3>
             </div>
             <ul style="list-style-type: none">

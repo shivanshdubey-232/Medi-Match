@@ -77,10 +77,19 @@
         </button>
       </form>
     </div>
-    <div class="contact-info">
+    <div class="contact-info" data-aos="fade-left">
+    <div class="contact-info" data-aos="fade-left">
       <h3 class="title">Your appointments with <%= doctor.name %></h3>
       <% if(doctor.appointments.length === 0){ %>
-      <h5 class="muted text-center p-5" data-aos="fade-right">No appointments yet...</h5>
+        <div
+        class=" information"
+        style="max-width: 600px; margin: auto"
+        data-aos="fade-right"
+        >
+        <div class="card-body text-center" style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
+        <h5 class="muted text-center p-5" >No appointments yet...</h5>
+        </div>
+        </div>
       <% } %> <% for(let appointment of doctor.appointments ){ %> <%
       if(currentUser && appointment.author._id.equals(currentUser._id)){ %>
       <div
