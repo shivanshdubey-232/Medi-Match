@@ -1,0 +1,11 @@
+.nav-link{
+  color:#9FC02C !important;
+  padding-left: 1.5em !important;
+  padding-right: 1.5em !important;
+  transition: color 0.5s ease-in-out;
+  font-size: 1.1em;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.nav-link:hover{
+  color: #15a04d !important;
+}

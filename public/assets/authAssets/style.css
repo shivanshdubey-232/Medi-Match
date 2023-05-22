@@ -300,7 +300,9 @@ main.sign-up-mode .carousel {
   background-color: #151111;
   border-radius: 1rem;
 }
-
+.ind-text {
+  margin-top: -3px;
+}
 @media (max-width: 850px) {
   .box {
     height: auto;

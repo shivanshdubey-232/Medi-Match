@@ -12,12 +12,16 @@ textarea {
   font-family: "Poppins", sans-serif;
 }
 
-.container {
+.delete:hover{
+  color: red !important;
+  transition: color 0.5s ease;
+}
+.containerAppointment {
   position: relative;
   width: 100%;
   min-height: 100vh;
   padding: 2rem;
-  background-color: #fafafa;
+  background-color: white;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -37,13 +41,13 @@ textarea {
 }
 
 .contact-form {
-  background-color: #1abc9c;
+  background-color: #74C52B;
   position: relative;
 }
 
 .circle {
   border-radius: 50%;
-  background: linear-gradient(135deg, transparent 20%, #149279);
+  background: linear-gradient(135deg, transparent 20%, #10a90a);
   position: absolute;
 }
 
@@ -66,7 +70,7 @@ textarea {
   position: absolute;
   width: 26px;
   height: 26px;
-  background-color: #1abc9c;
+  background-color: #74C52B;
   transform: rotate(45deg);
   top: 50px;
   left: -13px;
@@ -138,7 +142,7 @@ textarea.input {
   background-color: #fff;
   border: 2px solid #fafafa;
   font-size: 0.95rem;
-  color: #1abc9c;
+  color: #74C52B;
   line-height: 1;
   border-radius: 25px;
   outline: none;
@@ -172,7 +176,7 @@ textarea.input {
   opacity: 0;
   transition: 0.3s;
   height: 5px;
-  background-color: #1abc9c;
+  background-color: #74C52B;
   top: 50%;
   transform: translateY(-50%);
 }
@@ -204,7 +208,7 @@ textarea.input {
 }
 
 .contact-info .title {
-  color: #1abc9c;
+  color: #74C52B;
 }
 
 .text {
@@ -242,7 +246,7 @@ textarea.input {
   width: 35px;
   height: 35px;
   border-radius: 5px;
-  background: linear-gradient(45deg, #1abc9c, #149279);
+  background: linear-gradient(45deg, #74C52B, #149279);
   color: #fff;
   text-align: center;
   line-height: 35px;
@@ -259,7 +263,7 @@ textarea.input {
   position: absolute;
   width: 110px;
   height: 100px;
-  border: 22px solid #1abc9c;
+  border: 22px solid #74C52B;
   border-radius: 50%;
   bottom: -77px;
   right: 50px;
@@ -271,7 +275,7 @@ textarea.input {
   width: 500px;
   height: 500px;
   border-radius: 50%;
-  background: linear-gradient(to bottom, #1cd4af, #159b80);
+  background: linear-gradient(to bottom, #87de3b, #316801);
   bottom: 50%;
   right: 50%;
   transform: translate(-40%, 38%);
@@ -282,7 +286,7 @@ textarea.input {
   position: absolute;
   width: 360px;
   height: 360px;
-  background-color: #fafafa;
+  background-color: white;
   border-radius: 50%;
   top: calc(50% - 180px);
   left: calc(50% - 180px);
@@ -336,7 +340,7 @@ textarea.input {
 }
 
 @media (max-width: 480px) {
-  .container {
+  .containerAppointment {
     padding: 1.5rem;
   }
 
