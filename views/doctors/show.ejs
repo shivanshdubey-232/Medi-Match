@@ -58,8 +58,9 @@
             <label for="date">Appointment Date</label>
             <input
               class="input"
-              type="text"
+              type="date"
               name="appointment[date]"
+              placeholder=""
               id="date"
               required
             />
@@ -99,7 +100,9 @@
               class="card-body text-center"
               style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"
             >
-              <p class="card-text">Date: <%= appointment.date %></p>
+              <p class="card-text">
+                Date: <%= appointment.date.toLocaleDateString() %>
+              </p>
               <p class="card-text">Time-Slot: <%= appointment.time %></p>
               <p class="card-text">Phone: <%= appointment.phone %></p>
               <p class="card-text">Email: <%= appointment.email %></p>
@@ -136,6 +139,5 @@
     src="https://kit.fontawesome.com/64d58efce2.js"
     crossorigin="anonymous"
   ></script>
-
   <%- include('../partials/footer')%>
 </div>

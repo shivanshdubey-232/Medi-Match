@@ -6,7 +6,7 @@ const appointmentSchema = new Schema({
   name: String,
   email: String,
   phone: String,
-  date: String,
+  date: Date,
   time: String,
   author: {
     type: Schema.Types.ObjectId,
