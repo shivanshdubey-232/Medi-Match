@@ -13,7 +13,7 @@ In order to run the project locally write npm -install to install all dependenci
 ## Doctors page for user (No authority to add or delete doctor)
 ![image](https://github.com/shivanshdubey-232/Medi-Match/assets/97730783/78e03261-7a0c-48be-aca4-7c9c497cc34e)
 ## Make an appointment page for user
-![image](https://github.com/shivanshdubey-232/Medi-Match/assets/97730783/d599524f-6e04-4e42-a77a-10624cd06363)
+![image](https://github.com/shivanshdubey-232/Medi-Match/assets/97730783/56739ac8-a83c-4898-9e54-c76aec300821)
 ## Docotrs Page for admin ()Authoritty to add or delete doctor
 ![image](https://github.com/shivanshdubey-232/Medi-Match/assets/97730783/b8e7d17b-7bea-4c57-9811-0d0d6888fac4)
 ## Add a new doctor page (For admin only)
