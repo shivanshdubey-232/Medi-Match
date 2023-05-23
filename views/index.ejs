@@ -5,107 +5,47 @@
   });
 </script>
 
-<!-- Slider -->
-<div class="container">
-  <div
-    id="slide"
-    class="container-fluid"
-    style="display: inline-block; width: 100%; margin:auto;"
-    data-aos="zoom-in"
-  >
-    <div class="slideshow-container">
-      <div class="mySlides fade">
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<!-- bootstrap corousel -->
+<div class="container" data-aos="zoom-out">
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
         <a href="/predict">
-          <img src="assets/img/slider/medi-detect.png" alt="Slider1" style="width: 100%" />
+          <img class="d-block w-100" src="assets/img/slider/medi-detect.png" alt="First slide">
         </a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
       </div>
-      <div class="mySlides fade">
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a href="/doctors">
-          <img src="assets/img/slider/Book-appointment.png" alt="Slider2" style="width: 100%" />
-        </a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      <div class="carousel-item">
+      <a href="/doctors">
+        <img class="d-block w-100" src="assets/img/slider/Book-appointment.png" alt="Second slide">
+      </a>
       </div>
-      <div class="mySlides fade">
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a href="/gallery">
-          <img src="assets/img/slider/3.jpg" alt="Slider3" style="width: 100%" />
-        </a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      <div class="carousel-item">
+      <a href="/gallery">
+        <img class="d-block w-100" src="assets/img/slider/gallery.png" alt="Third slide">
+      </a>
       </div>
     </div>
-    <br/>
-    <div style="text-align: center">
-      <span class="dot" onclick="currentSlide(1)"></span>
-      <span class="dot" onclick="currentSlide(2)"></span>
-      <span class="dot" onclick="currentSlide(3)"></span>
-      <span class="dot" onclick="currentSlide(4)"></span>
-    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
   </div>
-
 </div>
-
 <script>
-  var slideIndex = 0;
-  showSlides();
-  var slides, dots;
-
-  function showSlides() {
-    var i;
-    slides = document.getElementsByClassName("mySlides");
-    dots = document.getElementsByClassName("dot");
-    for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-    }
-    slideIndex++;
-    if (slideIndex > slides.length) {
-      slideIndex = 1;
-    }
-    for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-    }
-    slides[slideIndex - 1].style.display = "block";
-    dots[slideIndex - 1].className += " active";
-    setTimeout(showSlides, 8000); // Change image every 8 seconds
-  }
-
-  function plusSlides(position) {
-    slideIndex += position;
-    if (slideIndex > slides.length) {
-      slideIndex = 1;
-    } else if (slideIndex < 1) {
-      slideIndex = slides.length;
-    }
-    for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-    }
-    for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-    }
-    slides[slideIndex - 1].style.display = "block";
-    dots[slideIndex - 1].className += " active";
-  }
-
-  function currentSlide(index) {
-    if (index > slides.length) {
-      index = 1;
-    } else if (index < 1) {
-      index = slides.length;
-    }
-    for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-    }
-    for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-    }
-    slides[index - 1].style.display = "block";
-    dots[index - 1].className += " active";
-  }
+  $('.carousel').carousel({
+  interval: 2000;
+})
 </script>
 
-<!-- End of Slider -->
 
 <!--=== Welcome to MEDI-MATCH===-->
 <div
