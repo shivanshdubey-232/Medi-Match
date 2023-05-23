@@ -6,37 +6,45 @@
 </script>
 
 <!-- Slider -->
+<div class="container">
+  <div
+    id="slide"
+    class="container-fluid"
+    style="display: inline-block; width: 100%; margin:auto;"
+    data-aos="zoom-in"
+  >
+    <div class="slideshow-container">
+      <div class="mySlides fade">
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a href="/predict">
+          <img src="assets/img/slider/medi-detect.png" alt="Slider1" style="width: 100%" />
+        </a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      </div>
+      <div class="mySlides fade">
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a href="/doctors">
+          <img src="assets/img/slider/Book-appointment.png" alt="Slider2" style="width: 100%" />
+        </a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      </div>
+      <div class="mySlides fade">
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a href="/gallery">
+          <img src="assets/img/slider/3.jpg" alt="Slider3" style="width: 100%" />
+        </a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      </div>
+    </div>
+    <br/>
+    <div style="text-align: center">
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+      <span class="dot" onclick="currentSlide(4)"></span>
+    </div>
+  </div>
 
-<div
-  id="slide"
-  class="container-fluid"
-  style="display: inline-block; width: 100%; margin:auto;"
-  data-aos="zoom-in"
->
-  <div class="slideshow-container">
-    <div class="mySlides fade">
-      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-      <img src="assets/img/slider/1.jpg" alt="Slider1" style="width: 100%" />
-      <a class="next" onclick="plusSlides(1)">&#10095;</a>
-    </div>
-    <div class="mySlides fade">
-      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-      <img src="assets/img/slider/2.jpg" alt="Slider2" style="width: 100%" />
-      <a class="next" onclick="plusSlides(1)">&#10095;</a>
-    </div>
-    <div class="mySlides fade">
-      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-      <img src="assets/img/slider/3.jpg" alt="Slider3" style="width: 100%" />
-      <a class="next" onclick="plusSlides(1)">&#10095;</a>
-    </div>
-  </div>
-  <br/>
-  <div style="text-align: center">
-    <span class="dot" onclick="currentSlide(1)"></span>
-    <span class="dot" onclick="currentSlide(2)"></span>
-    <span class="dot" onclick="currentSlide(3)"></span>
-    <span class="dot" onclick="currentSlide(4)"></span>
-  </div>
 </div>
 
 <script>
