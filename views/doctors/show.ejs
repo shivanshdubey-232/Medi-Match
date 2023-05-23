@@ -5,137 +5,137 @@
 
 <!-- Start main -->
 <div class="container">
-<div class="containerAppointment">
-  <span class="big-circle"></span>
-  <img src="/assets/img/appointment/shape.png" class="square" alt="" />
-  <div class="form">
-    <div class="contact-form">
-      <span class="circle one"></span>
-      <span class="circle two"></span>
-      <form
-        action="/doctors/<%= doctor._id %>/appointments"
-        method="POST"
-        style="max-width: 600px; margin: auto"
-        class="mb-3 validated-form"
-        data-aos="zoom-in"
-        novalidate
-      >
-        <h3 class="title">Make an appointment with <%= doctor.name %></h3>
-        <div class="input-container">
-          <input class="input" type="text" name="appointment[name]" id="name" required>
-          <label for="">Patient's Name</label>
-          <span>Patient's Name</span>
-        </div>
-        <div class="input-container">
-          <input
-          class="input"
-          type="text"
-          name="appointment[phone]"
-          id="phone"
-          required
-          />
-          <label for="">Patient's Phone</label>
-          <span>Patient's Phone</span>
-        </div>
-        <div class="input-container">
-          <label for="email">Patient's Email</label>
-          <input
-            class="input"
-            type="email"
-            name="appointment[email]"
-            id="email"
-            required
-          />
-          <span>Patient's Email</span>
-        </div>
-        <div class="input-container">
-          <label for="date">Appointment Date</label>
-          <input
-            class="input"
-            type="text"
-            name="appointment[date]"
-            id="date"
-            required
-          />
-          <span>Appointment Date</span>
-        </div>
-        <div class="input-container">
-          <select
-            class="input"
-            name="appointment[time]"
-            id="time"
-            required
-          >
-            <% for(let slot of allSlots){ %> <% if
-            (!appointmentSlots.includes(slot)){%>
-            <option style="color:#15A084"value="<%= slot %>"><%= slot %></option>
-            <% } %> <% } %>
-          </select>
-        </div>
-        <button type="submit" class="btn btn-success mb-3" style="width:100%;"> 
-          Make an appointment
-        </button>
-      </form>
-    </div>
-    <div class="contact-info" data-aos="fade-left">
-    <div class="contact-info" data-aos="fade-left">
-      <h3 class="title">Your appointments with <%= doctor.name %></h3>
-      <% if(doctor.appointments.length === 0){ %>
-        <div
-        class=" information"
-        style="max-width: 600px; margin: auto"
-        data-aos="fade-right"
+  <div class="containerAppointment">
+    <span class="big-circle"></span>
+    <img src="/assets/img/appointment/shape.png" class="square" alt="" />
+    <div class="form">
+      <div class="contact-form">
+        <span class="circle one"></span>
+        <span class="circle two"></span>
+        <form
+          action="/doctors/<%= doctor._id %>/appointments"
+          method="POST"
+          style="max-width: 600px; margin: auto"
+          class="mb-3 validated-form"
+          data-aos="zoom-in"
+          novalidate
         >
-        <div class="card-body text-center" style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
-        <h5 class="muted text-center p-5" >No appointments yet...</h5>
-        </div>
-        </div>
-      <% } %> <% for(let appointment of doctor.appointments ){ %> <%
-      if(currentUser && appointment.author._id.equals(currentUser._id)){ %>
-      <div
-        class=" information"
-        style="max-width: 600px; margin: auto"
-        data-aos="fade-right"
-      >
-        <div class="card-body text-center" style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
-          <h5 class="card-title">Appointment with <%= appointment.name %></h5>
-          <p class="card-text">Date: <%= appointment.date %></p>
-          <p class="card-text">Time-Slot: <%= appointment.time %></p>
-          <p class="card-text">Phone: <%= appointment.phone %></p>
-          <p class="card-text">Email: <%= appointment.email %></p>
-          <form
-            action="/doctors/<%= doctor._id%>/appointments/<%= appointment._id %>?_method=DELETE"
-            method="POST"
-            class="p-0 m-0"
+          <h3 class="title">Make an appointment with <%= doctor.name %></h3>
+          <div class="input-container">
+            <input
+              class="input"
+              type="text"
+              name="appointment[name]"
+              id="name"
+              required
+            />
+            <label for="">Patient's Name</label>
+            <span>Patient's Name</span>
+          </div>
+          <div class="input-container">
+            <input
+              class="input"
+              type="text"
+              name="appointment[phone]"
+              id="phone"
+              required
+            />
+            <label for="">Patient's Phone</label>
+            <span>Patient's Phone</span>
+          </div>
+          <div class="input-container">
+            <label for="email">Patient's Email</label>
+            <input
+              class="input"
+              type="email"
+              name="appointment[email]"
+              id="email"
+              required
+            />
+            <span>Patient's Email</span>
+          </div>
+          <div class="input-container">
+            <label for="date">Appointment Date</label>
+            <input
+              class="input"
+              type="text"
+              name="appointment[date]"
+              id="date"
+              required
+            />
+            <span>Appointment Date</span>
+          </div>
+          <div class="input-container">
+            <select class="input" name="appointment[time]" id="time" required>
+              <% for(let slot of allSlots){ %> <% if
+              (!appointmentSlots.includes(slot)){%>
+              <option style="color: #15a084" value="<%= slot %>">
+                <%= slot %>
+              </option>
+              <% } %> <% } %>
+            </select>
+          </div>
+          <button
+            type="submit"
+            class="btn btn-success mb-3"
+            style="width: 100%"
           >
-            <button class="delete btn btn-danger  mb-3">Delete</button>
-          </form>
-        </div>
+            Make an appointment
+          </button>
+        </form>
       </div>
-      <% } %> <% } %>
-      <div class="info" data-aos="fade-left">
-            <div class="information">
-              <img src="/assets/img/appointment/location.png" class="icon" alt="" />
-              <p>92 Cherry Drive Uniondale, NY 11553</p>
+      <div class="contact-info" style="text-align: center" data-aos="fade-left">
+        <div class="contact-info" data-aos="fade-left">
+          <h3 class="title">Your Appointment</h3>
+          <% let cnt = 0 %> <% for(let appointment of doctor.appointments ){ %>
+          <% if(currentUser && appointment.author._id.equals(currentUser._id)){
+          %> <% cnt++ %>
+          <div
+            class="information"
+            style="max-width: 600px; margin: auto"
+            data-aos="fade-right"
+          >
+            <div
+              class="card-body text-center"
+              style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"
+            >
+              <p class="card-text">Date: <%= appointment.date %></p>
+              <p class="card-text">Time-Slot: <%= appointment.time %></p>
+              <p class="card-text">Phone: <%= appointment.phone %></p>
+              <p class="card-text">Email: <%= appointment.email %></p>
+              <form
+                action="/doctors/<%= doctor._id%>/appointments/<%= appointment._id %>?_method=DELETE"
+                method="POST"
+                class="p-0 m-0"
+              >
+                <button class="delete btn btn-danger mb-3">Delete</button>
+              </form>
             </div>
-            <div class="information">
-              <img src="/assets/img/appointment/email.png" class="icon" alt="" />
-              <p>lorem@ipsum.com</p>
+          </div>
+          <% } %> <% } %> <% if(cnt===0){ %>
+          <div
+            class="information"
+            style="max-width: 600px; margin: auto"
+            data-aos="fade-right"
+          >
+            <div
+              class="card-body text-center"
+              style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"
+            >
+              <h5 class="muted text-center p-5">No Appointments Yet</h5>
             </div>
-            <div class="information">
-              <img src="/assets/img/appointment/phone.png" class="icon" alt="" />
-              <p>123-456-789</p>
-            </div>
+          </div>
+          <% } %>
+        </div>
       </div>
     </div>
   </div>
+
+  <script src="/assets/js/appointmentScript.js"></script>
+  <script
+    src="https://kit.fontawesome.com/64d58efce2.js"
+    crossorigin="anonymous"
+  ></script>
+
+  <%- include('../partials/footer')%>
 </div>
-</div> 
-
-<script src="/assets/js/appointmentScript.js"></script>
-<script
-  src="https://kit.fontawesome.com/64d58efce2.js"
-  crossorigin="anonymous"
-></script>
-
-<%- include('../partials/footer')%>

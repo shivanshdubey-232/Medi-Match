@@ -84,8 +84,8 @@ app.get("/gallery", (req, res) => {
   res.render("gallery");
 });
 // Predict disease route---------------------------
-app.get('/predict', (req, res) => {
-  res.render('predict.ejs');
+app.get("/predict", (req, res) => {
+  res.render("predict.ejs");
 });
 //------------------error handling------------------
 app.all("*", (req, res, next) => {
